@@ -12,7 +12,7 @@ export const PackagesList = ({ name, internet_packages, color }) => {
         <Row className="justify-content-center">
           {internet_packages.map((internet_package, index) => {
             return (
-              <Col xs={10} sm={6} lg={4}>
+              <Col xs={10} sm={6} lg={4} key={index}>
                 <PackagesCard internet_package={internet_package} color={color}/>
               </Col>
             );
