@@ -12,7 +12,7 @@ export const AboutUs = () => {
 
       <Container>
         <Row>
-          <Col md={6}>
+          <Col lg={6}>
             <p className="text">
               Somos una empresa Hidalguense, que nace del esfuerzo, trabajo y
               dedicación, en busca de satisfacer la necesidad cotidiana de

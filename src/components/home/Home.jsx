@@ -11,7 +11,7 @@ export const Home = () => {
 
       <Container className="">
         <Row className="d-flex align-items-center">
-          <Col md={6}>
+          <Col xs={12} md={6}>
             <p>
               {" "}
               Te brindamos las mejores soluciones de conexión a internet, que se
@@ -21,10 +21,10 @@ export const Home = () => {
               respalda y te garantiza un servicio de calidad.
             </p>
 
-            <Image src={devices} />
+            <Image src={devices} className="img-fluid"/>
           </Col>
-          <Col md={6}>
-            <Image src={map} />
+          <Col xs={12} md={6}>
+            <Image src={map} className="img-fluid"/>
           </Col>
         </Row>
       </Container>

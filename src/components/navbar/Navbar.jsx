@@ -9,12 +9,12 @@ import cartaDM from "../../assets/pdfs/Carta de derechos minimos.pdf"
 import CPGT from "../../assets/pdfs/Código de políticas de gestión de tráfico.pdf"
 import CPC from "../../assets/pdfs/Código de prácticas comerciales.pdf"
 import Profeco from "../../assets/pdfs/Profeco.pdf"
-
+import './navbar.css'
 
 export function MyNavbar() {
   const pdfs = [Profeco, avisoPrivacidad, cartaDM, CPGT, CPC]
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="" >
       <Container>
         <Navbar.Brand href="/">
         <img
@@ -44,3 +44,4 @@ export function MyNavbar() {
     </Navbar>
   );
 }
+

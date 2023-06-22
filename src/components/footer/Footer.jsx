@@ -7,7 +7,7 @@ export const Footer = () => {
     <footer className="">
       <Container>
         <Row className="justify-content-around">
-          <Col md={6}>
+          <Col lg={6}>
             <h2>Soporte Técnico</h2>
             <p>
             En CloudWare la satisfaccion de nuestros clientes es lo más
@@ -19,7 +19,7 @@ export const Footer = () => {
             <BsStickies/>  IFT/223/UCS/AUT-COM-077/2018
             </p>
           </Col>
-          <Col md={3}>
+          <Col lg={3}>
             <h2>Horario</h2>
             <p>
             <BsClock/>  Lunes a viernes de 9:00 - 18:00
