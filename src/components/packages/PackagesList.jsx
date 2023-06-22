@@ -1,11 +1,12 @@
-import { Title } from "../titile/Title";
+import { Title } from "../title/Title";
 import { Row, Col, Container } from "react-bootstrap";
 import { PackagesCard } from "./PackageCard";
 
 export const PackagesList = ({ name, internet_packages, color }) => {
   return (
-    <section id="packages">
+    <div>
       <Title title={name} color={color}/>
+      
 
       <Container className="">
         <Row className="justify-content-center">
@@ -18,6 +19,6 @@ export const PackagesList = ({ name, internet_packages, color }) => {
           })}
         </Row>
       </Container>
-    </section>
+    </div>
   );
 };
