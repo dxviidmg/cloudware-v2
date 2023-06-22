@@ -1,0 +1,16 @@
+[{
+    "name": "Básico",
+    "speed": 5,
+    "price": 250
+},
+{
+    "name": "Intermedio",
+    "speed": 8,
+    "price": 350
+},
+{
+    "name": "Avanzado",
+    "speed": 10,
+    "price": 400
+}
+]

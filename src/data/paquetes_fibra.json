@@ -1,0 +1,26 @@
+[{
+    "name": "Básico",
+    "speed": 30,
+    "price": 300
+},
+{
+    "name": "Esencial",
+    "speed": 50,
+    "price": 400
+},
+{
+    "name": "Élite",
+    "speed": 80,
+    "price": 550
+},
+{
+    "name": "Premium",
+    "speed": 100,
+    "price": 800
+},
+{
+    "name": "Ultra",
+    "speed": 180,
+    "price": 1000
+}
+]
