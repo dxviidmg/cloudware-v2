@@ -27,8 +27,9 @@ export function MyNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-          <Nav.Link href="/about-us">Nosotros</Nav.Link>
+            <Nav.Link href="/about-us">Nosotros</Nav.Link>
             <Nav.Link href="/packages">Paquetes</Nav.Link>
+            <Nav.Link href="/contact-us">Contactanos</Nav.Link>
             <NavDropdown title="Documentacion" id="basic-nav-dropdown">
 
               {pdfs.map((pdf, index) => {
