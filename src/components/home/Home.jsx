@@ -10,8 +10,8 @@ export const Home = () => {
       <Title title={"Conectando tu mundo"} color={"#A58CBF"} />
 
       <Container className="">
-        <Row className="d-flex align-items-center">
-          <Col xs={12} md={6}>
+        <Row>
+          <Col xs={12} md={6} className="margin-col">
             <p>
               {" "}
               Te brindamos las mejores soluciones de conexión a internet, que se
@@ -23,7 +23,7 @@ export const Home = () => {
 
             <Image src={devices} className="img-fluid"/>
           </Col>
-          <Col xs={12} md={6}>
+          <Col xs={12} md={6} className="margin-col">
             <Image src={map} className="img-fluid"/>
           </Col>
         </Row>

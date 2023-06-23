@@ -2,7 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 export function MyCarousel({images}) {
   return (
-    <Carousel> 
+    <Carousel > 
 
         {images.map((image, index)=>{
             return(

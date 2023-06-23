@@ -8,7 +8,7 @@ import internet_packages2 from './data/paquetes_fibra.json'
 import { AboutUs } from './components/aboutUs/AboutUs';
 import { MyNavbar } from './components/navbar/Navbar';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Packages } from './components/packages/Pacckages';
+import { Packages } from './components/packages/Packages';
 import { Footer } from './components/footer/Footer';
 import { ContactUs } from './components/contactUs/ContactUs';
 

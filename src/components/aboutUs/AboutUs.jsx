@@ -10,10 +10,10 @@ export const AboutUs = () => {
     <section id="about-us" className="paddings">
       <Title title={"CloudWare"} color={"orange"} />
 
-      <Container>
-        <Row>
-          <Col lg={6}>
-            <p className="text">
+      <Container >
+        <Row >
+          <Col lg={6} className="margin-col">
+            <p>
               Somos una empresa Hidalguense, que nace del esfuerzo, trabajo y
               dedicación, en busca de satisfacer la necesidad cotidiana de
               contar con una conexión a internet, confiable y de calidad. El
@@ -22,7 +22,7 @@ export const AboutUs = () => {
               mereces.
             </p>
           </Col>
-          <Col md={12}>
+          <Col md={12} className="margin-col">
             <MyCarousel images={[img1, img2, img3]}></MyCarousel>
           </Col>
         </Row>
