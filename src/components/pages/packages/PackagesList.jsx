@@ -8,7 +8,7 @@ export const PackagesList = ({ name, internet_packages, color }) => {
       <Title title={name} color={color}/>
       
 
-      <Container className="">
+      <Container>
         <Row className="justify-content-center">
           {internet_packages.map((internet_package, index) => {
             return (

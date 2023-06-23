@@ -4,7 +4,7 @@ import './footer.css'
 
 export const Footer = () => {
   return (
-    <footer className="">
+    <footer>
       <Container>
         <Row className="justify-content-around">
           <Col lg={6}>

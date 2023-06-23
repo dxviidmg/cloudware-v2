@@ -14,7 +14,7 @@ import './navbar.css'
 export function MyNavbar() {
   const pdfs = [Profeco, avisoPrivacidad, cartaDM, CPGT, CPC]
   return (
-    <Navbar expand="lg" className="" >
+    <Navbar expand="lg">
       <Container>
         <Navbar.Brand href="/">
         <img

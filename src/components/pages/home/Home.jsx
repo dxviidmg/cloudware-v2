@@ -9,7 +9,7 @@ export const Home = () => {
     <section id="home" className="paddings">
       <Title title={"Conectando tu mundo"} color={"#A58CBF"} />
 
-      <Container className="">
+      <Container>
         <Row>
           <Col xs={12} md={6} className="margin-col">
             <p>
