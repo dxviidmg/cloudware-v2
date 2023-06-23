@@ -2,13 +2,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from "../../assets/images/logo.png"
+import logo from "../../../assets/images/logo.png"
 
-import avisoPrivacidad from "../../assets/pdfs/Aviso de privacidad.pdf"
-import cartaDM from "../../assets/pdfs/Carta de derechos minimos.pdf"
-import CPGT from "../../assets/pdfs/Código de políticas de gestión de tráfico.pdf"
-import CPC from "../../assets/pdfs/Código de prácticas comerciales.pdf"
-import Profeco from "../../assets/pdfs/Profeco.pdf"
+import avisoPrivacidad from "../../../assets/pdfs/Aviso de privacidad.pdf"
+import cartaDM from "../../../assets/pdfs/Carta de derechos minimos.pdf"
+import CPGT from "../../../assets/pdfs/Código de políticas de gestión de tráfico.pdf"
+import CPC from "../../../assets/pdfs/Código de prácticas comerciales.pdf"
+import Profeco from "../../../assets/pdfs/Profeco.pdf"
 import './navbar.css'
 
 export function MyNavbar() {

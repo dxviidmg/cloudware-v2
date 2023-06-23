@@ -1,13 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { Home } from "./components/home/Home";
+import { Home } from "./components/pages/home/Home";
 
-import { AboutUs } from "./components/aboutUs/AboutUs";
-import { MyNavbar } from "./components/navbar/Navbar";
+import { AboutUs } from "./components/pages/aboutUs/AboutUs";
+import { MyNavbar } from "./components/common/navbar/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Packages } from "./components/packages/Packages";
-import { Footer } from "./components/footer/Footer";
-import { ContactUs } from "./components/contactUs/ContactUs";
+import { Packages } from "./components/pages/packages/Packages";
+import { Footer } from "./components/common/footer/Footer";
+import { ContactUs } from "./components/pages/contactUs/ContactUs";
 
 function App() {
   return (

@@ -6,7 +6,7 @@ export function MyCarousel({images}) {
 
         {images.map((image, index)=>{
             return(
-                <Carousel.Item>
+                <Carousel.Item key={index}>
                 <img
                   className="d-block w-100"
                   src={image}

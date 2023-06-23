@@ -1,9 +1,9 @@
-import { Title } from "../common/title/Title";
+import { Title } from "../../../components/common/title/Title";
 import { Row, Col, Container } from "react-bootstrap";
-import { MyCarousel } from "../carrusel/carrusel";
-import img1 from "../../assets/images/slices/1.jpeg";
-import img2 from "../../assets/images/slices/2.jpeg";
-import img3 from "../../assets/images/slices/3.jpeg";
+import { MyCarousel } from "./../../common/carrusel/carrusel";
+import img1 from "../../../assets/images/slices/1.jpeg";
+import img2 from "../../../assets/images/slices/2.jpeg";
+import img3 from "../../../assets/images/slices/3.jpeg";
 import "./aboutus.css";
 export const AboutUs = () => {
   return (

@@ -1,8 +1,8 @@
-import { Title } from "../common/title/Title";
+import { Title } from "../../common/title/Title";
 import { Row, Col, Container, Image } from "react-bootstrap";
+import map from "./../../../assets/images/Map.png";
+import devices from "./../../../assets/images/Devices.png";
 import "./home.css";
-import map from "./../../assets/images/Map.png";
-import devices from "./../../assets/images/Devices.png";
 
 export const Home = () => {
   return (
