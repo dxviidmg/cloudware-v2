@@ -12,7 +12,7 @@ export const SendEmail = () => {
   function sendEmail(e) {
     const emailjs_service_id = process.env.REACT_APP_EMAILJS_SERVICE_ID;
     const emailjs_template_id = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const emailjs_user_key = process.env.REACT_APP_EMAILJS_USER_kEY;
+    const emailjs_user_key = process.env.REACT_APP_EMAILJS_USER_KEY;
 
     console.log("emailjs_service_id", emailjs_service_id);
     e.preventDefault();
