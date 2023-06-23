@@ -1,4 +1,4 @@
-import { Title } from "../title/Title";
+import { Title } from "../common/title/Title";
 import { Row, Col, Container, Image } from "react-bootstrap";
 import "./home.css";
 import map from "./../../assets/images/Map.png";

@@ -1,5 +1,5 @@
-import { Title } from "../title/Title";
-import { Row, Col, Container, Image } from "react-bootstrap";
+import { Title } from "../common/title/Title";
+import { Row, Col, Container } from "react-bootstrap";
 import { MyCarousel } from "../carrusel/carrusel";
 import img1 from "../../assets/images/slices/1.jpeg";
 import img2 from "../../assets/images/slices/2.jpeg";
