@@ -7,7 +7,7 @@ import { SendEmail } from "./sendEmail";
 export const ContactUs = () => {
   return (
     <section id="contact-us" className="paddings">
-      <Title title={"Cotilza"} color={"orange"} />
+      <Title title={"Cotiza"} color={"orange"} />
 
       <Container>
         <Row>
@@ -15,14 +15,10 @@ export const ContactUs = () => {
             <SendEmail></SendEmail>
           </Col>
           <Col lg={6} className="margin-col">
-            <Map/>
-
+            <Map />
           </Col>
         </Row>
       </Container>
     </section>
   );
 };
-
-
-

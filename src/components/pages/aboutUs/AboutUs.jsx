@@ -10,8 +10,8 @@ export const AboutUs = () => {
     <section id="about-us" className="paddings">
       <Title title={"CloudWare"} color={"orange"} />
 
-      <Container >
-        <Row >
+      <Container>
+        <Row>
           <Col lg={6} className="margin-col">
             <p>
               Somos una empresa Hidalguense, que nace del esfuerzo, trabajo y
