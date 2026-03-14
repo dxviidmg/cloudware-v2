@@ -9,7 +9,7 @@ export const Packages = () => {
     <section id="packages" className="paddings">
       <Title title={"Nuestros paquetes"} color={"white"} />
       <Container>
-        <p className="text-center packages-subtitle">
+        <p className="text-center section-subtitle">
           Elige el plan que mejor se adapte a ti. Sin contratos forzosos, sin letras chiquitas.
         </p>
       </Container>

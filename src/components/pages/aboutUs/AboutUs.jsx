@@ -7,6 +7,12 @@ import img2 from "../../../assets/images/slices/2.jpeg";
 import img3 from "../../../assets/images/slices/3.jpeg";
 import "./aboutus.css";
 
+const features = [
+  { icon: BsWifi, title: "Conexión estable", desc: "Internet de alta velocidad sin interrupciones" },
+  { icon: BsShieldCheck, title: "Servicio confiable", desc: "Soporte técnico de lunes a sábado" },
+  { icon: BsPeople, title: "Trato cercano", desc: "Empresa local que entiende tus necesidades" },
+];
+
 export const AboutUs = () => {
   return (
     <section id="about-us" className="paddings">
@@ -30,27 +36,15 @@ export const AboutUs = () => {
             </p>
 
             <div className="about-features">
-              <div className="about-feature">
-                <BsWifi className="about-feature-icon" />
-                <div>
-                  <strong>Conexión estable</strong>
-                  <span>Internet de alta velocidad sin interrupciones</span>
+              {features.map((f, i) => (
+                <div className="about-feature glass-card" key={i}>
+                  <f.icon className="about-feature-icon" />
+                  <div>
+                    <strong>{f.title}</strong>
+                    <span>{f.desc}</span>
+                  </div>
                 </div>
-              </div>
-              <div className="about-feature">
-                <BsShieldCheck className="about-feature-icon" />
-                <div>
-                  <strong>Servicio confiable</strong>
-                  <span>Soporte técnico de lunes a sábado</span>
-                </div>
-              </div>
-              <div className="about-feature">
-                <BsPeople className="about-feature-icon" />
-                <div>
-                  <strong>Trato cercano</strong>
-                  <span>Empresa local que entiende tus necesidades</span>
-                </div>
-              </div>
+              ))}
             </div>
           </Col>
           <Col lg={7} className="margin-col fade-in-right">

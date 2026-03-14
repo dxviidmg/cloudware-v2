@@ -5,6 +5,7 @@
   background-size: cover;
   background-attachment: fixed;
   position: relative;
+  color: white;
 }
 
 #home::before, #about-us::before, #packages::before, #contact-us::before {
@@ -20,20 +21,32 @@
   z-index: 1;
 }
 
-#packages {
-  color: white;
-}
-
-#home, #about-us, #contact-us {
-  color: white;
-}
-
 .paddings {
   padding: 30px 0 100px;
 }
 
 .margin-col {
   margin-top: 40px;
+}
+
+/* ===== GLASSMORPHISM (reusable) ===== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== SECTION SUBTITLE (reusable) ===== */
+.section-subtitle {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1.1rem;
+  margin-bottom: 40px;
 }
 
 /* ===== ANIMATIONS ===== */

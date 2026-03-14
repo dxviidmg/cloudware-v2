@@ -1,5 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { BsWhatsapp, BsEnvelope, BsClock, BsStickies } from "react-icons/bs";
+import { WHATSAPP_DISPLAY, EMAIL } from "../../../data/constants";
 import "./footer.css";
 
 export const Footer = () => {
@@ -28,17 +29,15 @@ export const Footer = () => {
             </p>
             <h2>Contacto</h2>
             <p>
-              <BsWhatsapp /> 772-129-29-69
+              <BsWhatsapp /> {WHATSAPP_DISPLAY}
               <br />
-              <BsEnvelope /> contacto@cloudwaremx.com
+              <BsEnvelope /> {EMAIL}
             </p>
           </Col>
         </Row>
         <Row>
-          <Col className="text-center mt-4" style={{ borderTop: "1px solid #333", paddingTop: "20px" }}>
-            <p style={{ color: "#666", fontSize: "0.85rem", margin: 0 }}>
-              © {new Date().getFullYear()} CloudWare MX. Todos los derechos reservados.
-            </p>
+          <Col className="text-center footer-copyright">
+            <p>© {new Date().getFullYear()} CloudWare MX. Todos los derechos reservados.</p>
           </Col>
         </Row>
       </Container>

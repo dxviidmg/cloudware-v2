@@ -34,3 +34,15 @@ footer svg {
   color: var(--accent);
   margin-right: 8px;
 }
+
+.footer-copyright {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.footer-copyright p {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0;
+}

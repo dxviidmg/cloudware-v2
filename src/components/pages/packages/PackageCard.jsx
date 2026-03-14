@@ -1,8 +1,11 @@
 import Card from "react-bootstrap/Card";
 import { BsSpeedometer2, BsStarFill } from "react-icons/bs";
+import { WHATSAPP_NUMBER } from "../../../data/constants";
 import "./packages.css";
 
 export function PackagesCard({ internet_package, color, popular }) {
+  const whatsappMsg = `Hola, me interesa el paquete ${internet_package.name} de ${internet_package.speed} Mbps`;
+
   return (
     <Card className={`package-card text-center ${popular ? "package-popular" : ""}`}>
       {popular && (
@@ -24,7 +27,7 @@ export function PackagesCard({ internet_package, color, popular }) {
         </div>
         <span className="price-period">MXN / mes</span>
         <a
-          href={`https://wa.me/527721292969?text=Hola, me interesa el paquete ${internet_package.name} de ${internet_package.speed} Mbps`}
+          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMsg)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="package-cta"

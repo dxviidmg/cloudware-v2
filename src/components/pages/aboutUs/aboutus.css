@@ -25,14 +25,9 @@
   align-items: center;
   gap: 15px;
   padding: 14px 18px;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
 }
 
 .about-feature:hover {
-  background: rgba(255, 255, 255, 0.1);
   transform: translateX(5px);
 }
 
