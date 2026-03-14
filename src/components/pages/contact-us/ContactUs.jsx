@@ -1,10 +1,10 @@
-import { Title } from "../../../components/common/title/Title";
+import { Title } from "../../common/title/Title";
 import { Row, Col, Container } from "react-bootstrap";
 import { BsGeoAlt, BsWhatsapp, BsEnvelope, BsClock } from "react-icons/bs";
 import { WHATSAPP_DISPLAY, EMAIL, ADDRESS } from "../../../data/constants";
 import { Map } from "./Map";
-import { SendEmail } from "./sendEmail";
-import "./contactUs.css";
+import { SendEmail } from "./SendEmail";
+import "./ContactUs.css";
 
 const contactInfo = [
   { icon: BsGeoAlt, label: "Ubicación", value: ADDRESS },

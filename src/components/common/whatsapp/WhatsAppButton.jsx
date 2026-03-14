@@ -1,6 +1,6 @@
 import { BsWhatsapp } from "react-icons/bs";
 import { WHATSAPP_URL } from "../../../data/constants";
-import "./whatsapp.css";
+import "./WhatsAppButton.css";
 
 export const WhatsAppButton = () => (
   <a

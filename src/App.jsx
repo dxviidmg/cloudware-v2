@@ -1,12 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Home } from "./components/pages/home/Home";
-import { AboutUs } from "./components/pages/aboutUs/AboutUs";
+import { AboutUs } from "./components/pages/about-us/AboutUs";
 import { MyNavbar } from "./components/common/navbar/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Packages } from "./components/pages/packages/Packages";
 import { Footer } from "./components/common/footer/Footer";
-import { ContactUs } from "./components/pages/contactUs/ContactUs";
+import { ContactUs } from "./components/pages/contact-us/ContactUs";
 import { WhatsAppButton } from "./components/common/whatsapp/WhatsAppButton";
 
 function App() {

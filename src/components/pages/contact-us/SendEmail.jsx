@@ -1,9 +1,9 @@
 import { Button, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import "./sendEmail.css";
+import "./SendEmail.css";
 import emailjs from "emailjs-com";
 import React, { useState } from "react";
-import { MyModal } from "../../../components/common/modal/Modal";
+import { MyModal } from "../../common/modal/Modal";
 
 export const SendEmail = () => {
   const [showModal, setShowModal] = useState(false);

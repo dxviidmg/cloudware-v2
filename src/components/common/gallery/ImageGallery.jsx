@@ -1,4 +1,4 @@
-import "./gallery.css";
+import "./ImageGallery.css";
 
 export function ImageGallery({ images }) {
   return (

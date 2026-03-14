@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import { BsSpeedometer2, BsStarFill } from "react-icons/bs";
 import { WHATSAPP_NUMBER } from "../../../data/constants";
-import "./packages.css";
+import "./Packages.css";
 
 export function PackagesCard({ internet_package, color, popular }) {
   const whatsappMsg = `Hola, me interesa el paquete ${internet_package.name} de ${internet_package.speed} Mbps`;

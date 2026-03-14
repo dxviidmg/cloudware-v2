@@ -1,11 +1,11 @@
-import { Title } from "../../../components/common/title/Title";
+import { Title } from "../../common/title/Title";
 import { Row, Col, Container } from "react-bootstrap";
-import { ImageGallery } from "./../../common/gallery/ImageGallery";
+import { ImageGallery } from "../../common/gallery/ImageGallery";
 import { BsWifi, BsShieldCheck, BsPeople } from "react-icons/bs";
 import img1 from "../../../assets/images/slices/1.jpeg";
 import img2 from "../../../assets/images/slices/2.jpeg";
 import img3 from "../../../assets/images/slices/3.jpeg";
-import "./aboutus.css";
+import "./AboutUs.css";
 
 const features = [
   { icon: BsWifi, title: "Conexión estable", desc: "Internet de alta velocidad sin interrupciones" },

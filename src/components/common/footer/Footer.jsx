@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { BsWhatsapp, BsEnvelope, BsClock, BsStickies } from "react-icons/bs";
 import { WHATSAPP_DISPLAY, EMAIL } from "../../../data/constants";
-import "./footer.css";
+import "./Footer.css";
 
 export const Footer = () => {
   return (
