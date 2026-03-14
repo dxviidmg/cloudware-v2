@@ -1,9 +1,11 @@
 form {
-  background: var(--gradient);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
   padding: 40px 30px;
   color: white;
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(108, 63, 160, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 form .form-label {
@@ -26,8 +28,8 @@ form .form-control:focus {
 }
 
 form .btn-primary {
-  background: white;
-  color: var(--primary);
+  background: var(--accent);
+  color: white;
   border: none;
   border-radius: 12px;
   padding: 12px 40px;
@@ -38,8 +40,8 @@ form .btn-primary {
 }
 
 form .btn-primary:hover {
-  background: var(--accent);
-  color: white;
+  background: var(--accent-light);
+  color: var(--primary-dark);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(245, 166, 35, 0.4);
 }
