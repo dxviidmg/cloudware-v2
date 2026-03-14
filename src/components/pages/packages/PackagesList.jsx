@@ -1,22 +1,19 @@
-import { Title } from "./../../common/title/Title";
+import { Title } from "../../common/title/Title";
 import { Row, Col, Container } from "react-bootstrap";
 import { PackagesCard } from "./PackageCard";
 
-export const PackagesList = ({ name, internet_packages, color }) => {
+export const PackagesList = ({ name, description, internet_packages, color }) => {
   return (
-    <div>
-      <Title title={name} color={color}/>
-      
-
+    <div className="mb-5">
+      <Title title={name} color={color} />
       <Container>
+        {description && <p className="packages-description text-center">{description}</p>}
         <Row className="justify-content-center">
-          {internet_packages.map((internet_package, index) => {
-            return (
-              <Col xs={10} sm={6} lg={4} key={index}>
-                <PackagesCard internet_package={internet_package} color={color}/>
-              </Col>
-            );
-          })}
+          {internet_packages.map((internet_package, index) => (
+            <Col xs={10} sm={6} lg key={index} className="fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+              <PackagesCard internet_package={internet_package} color={color} popular={internet_package.popular} />
+            </Col>
+          ))}
         </Row>
       </Container>
     </div>

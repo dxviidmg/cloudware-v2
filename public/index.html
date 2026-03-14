@@ -1,43 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta name="theme-color" content="#6C3FA0" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Cloudwaremx</title>
+    <!-- SEO Primary -->
+    <title>CloudWare MX | Internet en Actopan, Hidalgo - Fibra Óptica e Inalámbrico</title>
+    <meta name="description" content="CloudWare MX ofrece servicios de internet por fibra óptica e inalámbrico en Actopan, Hidalgo. Paquetes desde $250/mes. Conexión confiable y de calidad." />
+    <meta name="keywords" content="internet Actopan, internet Hidalgo, fibra óptica Actopan, WiFi Actopan, proveedor internet Hidalgo, CloudWare, paquetes internet, internet inalámbrico Hidalgo" />
+    <meta name="author" content="CloudWare MX" />
+    <link rel="canonical" href="https://cloudwaremx.com" />
+
+    <!-- Open Graph (Facebook, WhatsApp) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CloudWare MX | Internet en Actopan, Hidalgo" />
+    <meta property="og:description" content="Servicios de internet por fibra óptica e inalámbrico en Actopan, Hidalgo. Paquetes desde $250/mes." />
+    <meta property="og:url" content="https://cloudwaremx.com" />
+    <meta property="og:image" content="https://cloudwaremx.com/logo512.png" />
+    <meta property="og:site_name" content="CloudWare MX" />
+    <meta property="og:locale" content="es_MX" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CloudWare MX | Internet en Actopan, Hidalgo" />
+    <meta name="twitter:description" content="Servicios de internet por fibra óptica e inalámbrico. Paquetes desde $250/mes." />
+    <meta name="twitter:image" content="https://cloudwaremx.com/logo512.png" />
+
+    <!-- Geo -->
+    <meta name="geo.region" content="MX-HID" />
+    <meta name="geo.placename" content="Actopan, Hidalgo" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "InternetServiceProvider",
+      "name": "CloudWare MX",
+      "url": "https://cloudwaremx.com",
+      "logo": "https://cloudwaremx.com/logo512.png",
+      "description": "Proveedor de servicios de internet por fibra óptica e inalámbrico en Actopan, Hidalgo.",
+      "telephone": "+527721292969",
+      "email": "contacto@cloudwaremx.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "C. Efrén Rebolledo 24, Centro Nte",
+        "addressLocality": "Actopan",
+        "addressRegion": "Hidalgo",
+        "postalCode": "42500",
+        "addressCountry": "MX"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Actopan, Hidalgo, México"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:30",
+          "closes": "15:30"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Paquetes de Internet",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Inalámbrico Básico - 5 Mbps",
+            "price": "250",
+            "priceCurrency": "MXN"
+          },
+          {
+            "@type": "Offer",
+            "name": "Fibra Óptica Básico - 30 Mbps",
+            "price": "300",
+            "priceCurrency": "MXN"
+          },
+          {
+            "@type": "Offer",
+            "name": "Fibra Óptica Ultra - 180 Mbps",
+            "price": "1000",
+            "priceCurrency": "MXN"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

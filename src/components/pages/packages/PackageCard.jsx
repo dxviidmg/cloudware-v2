@@ -1,24 +1,41 @@
 import Card from "react-bootstrap/Card";
-import "./packages.css";
+import { BsSpeedometer2, BsStarFill } from "react-icons/bs";
+import { WHATSAPP_NUMBER } from "../../../data/constants";
+import "./Packages.css";
 
-export function PackagesCard({ internet_package, color }) {
+export function PackagesCard({ internet_package, color, popular }) {
+  const whatsappMsg = `Hola, me interesa el paquete ${internet_package.name} de ${internet_package.speed} Mbps`;
+
   return (
-    <Card className="text-center">
-      <Card.Title style={{ backgroundColor: color, padding: "10px 0 3PX 0" }}>
-        {" "}
-        <h2 className="text-white">{internet_package.name}</h2>
-      </Card.Title>
-      <Card.Text>
-        <span className="card-text"> Navega con</span> <br />{" "}
-        <span className="card-text2"> {internet_package.speed} Mbps</span>{" "}
-        <br />
-        <span className="card-text"> a solo</span> <br />
-        <span className="card-text2">
-          {" "}
-          ${internet_package.price} al mes
-        </span>{" "}
-        <br />
-      </Card.Text>
+    <Card className={`package-card text-center ${popular ? "package-popular" : ""}`}>
+      {popular && (
+        <div className="popular-badge">
+          <BsStarFill /> Popular
+        </div>
+      )}
+      <div className="package-header" style={{ background: color }}>
+        <h2>{internet_package.name}</h2>
+      </div>
+      <Card.Body className="package-body">
+        <div className="speed-badge">
+          <BsSpeedometer2 />
+          <span>{internet_package.speed} Mbps</span>
+        </div>
+        <div className="price-section">
+          <span className="price-currency">$</span>
+          <span className="price-amount">{internet_package.price}</span>
+        </div>
+        <span className="price-period">MXN / mes</span>
+        <a
+          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMsg)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="package-cta"
+          style={{ background: color }}
+        >
+          ¡Lo quiero!
+        </a>
+      </Card.Body>
     </Card>
   );
 }

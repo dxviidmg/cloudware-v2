@@ -1,0 +1,48 @@
+footer {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #ccc;
+  padding: 60px 0 40px;
+}
+
+footer h2 {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+footer h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+footer p {
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 2;
+}
+
+footer svg {
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+.footer-copyright {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.footer-copyright p {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0;
+}

@@ -1,0 +1,65 @@
+.contact-form {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  padding: 35px 30px;
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-form .form-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.optional-label {
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.contact-form .form-control {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.3);
+  background: white;
+}
+
+.contact-form textarea.form-control {
+  resize: none;
+}
+
+.contact-form .btn-primary {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+}
+
+.contact-form .btn-primary:hover {
+  background: var(--accent-light);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 166, 35, 0.4);
+}
+
+.contact-form .btn-primary:disabled {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.5);
+  transform: none;
+  box-shadow: none;
+}
