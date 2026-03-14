@@ -6,14 +6,14 @@ export const Packages = () => {
   return (
     <section id="packages" className="paddings">
       <PackagesList
-        name={"Inalambrico"}
+        name={"Inalámbrico"}
         internet_packages={internet_packages}
-        color="blue"
+        color="var(--primary)"
       />
       <PackagesList
         name={"Fibra óptica"}
         internet_packages={internet_packages2}
-        color="#DC9FE2"
+        color="var(--accent)"
       />
     </section>
   );
