@@ -1,7 +1,3 @@
-.test{
-  background-color: aqua;
-}
-
 .min-height{
   min-height: 90vh;
 }
@@ -14,7 +10,6 @@ p{
   background-image: url('./assets/images/Background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  
 }
 
 .paddings {
