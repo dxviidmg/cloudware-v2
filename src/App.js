@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Packages } from "./components/pages/packages/Packages";
 import { Footer } from "./components/common/footer/Footer";
 import { ContactUs } from "./components/pages/contactUs/ContactUs";
+import { WhatsAppButton } from "./components/common/whatsapp/WhatsAppButton";
 
 function App() {
   return (
@@ -14,11 +15,12 @@ function App() {
       <MyNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/packages" element={<Packages />} />
-        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/nosotros" element={<AboutUs />} />
+        <Route path="/paquetes" element={<Packages />} />
+        <Route path="/contacto" element={<ContactUs />} />
       </Routes>
       <Footer />
+      <WhatsAppButton />
     </BrowserRouter>
   );
 }

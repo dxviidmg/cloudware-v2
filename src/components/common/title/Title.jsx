@@ -2,7 +2,7 @@ import { Row, Col } from "react-bootstrap";
 
 export const Title = ({ title, color }) => {
   return (
-    <Row className="justify-content-center mb-5">
+    <Row className="justify-content-center mb-3">
       <Col xs="auto">
         <h1
           className="text-center"

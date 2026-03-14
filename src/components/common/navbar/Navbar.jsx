@@ -38,13 +38,13 @@ export function MyNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <LinkContainer to="/about-us">
+            <LinkContainer to="/nosotros">
               <Nav.Link>Nosotros</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/packages">
+            <LinkContainer to="/paquetes">
               <Nav.Link>Paquetes</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/contact-us">
+            <LinkContainer to="/contacto">
               <Nav.Link>Contáctanos</Nav.Link>
             </LinkContainer>
             <NavDropdown title="Documentación" id="basic-nav-dropdown">

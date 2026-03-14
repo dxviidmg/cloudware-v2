@@ -9,7 +9,7 @@ export const PackagesList = ({ name, internet_packages, color }) => {
       <Container>
         <Row className="justify-content-center">
           {internet_packages.map((internet_package, index) => (
-            <Col xs={10} sm={6} lg={4} xl={3} key={index} className="fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+            <Col xs={10} sm={6} lg key={index} className="fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
               <PackagesCard internet_package={internet_package} color={color} />
             </Col>
           ))}
