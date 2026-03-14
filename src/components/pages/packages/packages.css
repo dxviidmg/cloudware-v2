@@ -1,20 +1,48 @@
 .card-text2 {
-  font-size: 2.3rem;
-  font-weight: bold;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
 }
 
 .card {
-  border-radius: 10px;
+  border: none;
+  border-radius: 20px;
   margin-top: 2vh;
   margin-bottom: 2vh;
-
-  transition: 500ms;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
-
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  background: white;
 }
 
 .card:hover {
-  transition: 500ms;
-  transform: scale(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(108, 63, 160, 0.2);
+}
+
+.card .card-title {
+  margin: 0;
+}
+
+.card .card-title h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.card-text {
+  color: #888;
+  font-size: 1rem;
+}
+
+.package-price-label {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 20px;
+  border-radius: 20px;
+  background: var(--light);
+  font-size: 0.85rem;
+  color: var(--primary);
+  font-weight: 500;
 }
