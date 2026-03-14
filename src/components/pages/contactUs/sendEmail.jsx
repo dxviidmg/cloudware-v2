@@ -8,58 +8,51 @@ import { MyModal } from "../../../components/common/modal/Modal";
 export const SendEmail = () => {
   const [showModal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
 
-  function sendEmail(e) {
-    const emailjs_service_id = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const emailjs_template_id = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const emailjs_user_key = process.env.REACT_APP_EMAILJS_USER_KEY;
-
-    console.log("emailjs_service_id", emailjs_service_id);
+  function handleSubmit(e) {
     e.preventDefault();
+    setSending(true);
 
     emailjs
       .sendForm(
-        emailjs_service_id,
-        emailjs_template_id,
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         e.target,
-        emailjs_user_key
+        process.env.REACT_APP_EMAILJS_USER_KEY
       )
       .then(
-        (result) => {
-          console.log("Email successfully sent!");
+        () => {
           setMessage("El formulario se envió correctamente.");
           setShowModal(true);
+          e.target.reset();
         },
-        (error) => {
-          console.error("Error sending email:", error);
+        () => {
           setMessage(
             "Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo más tarde."
           );
           setShowModal(true);
         }
-      );
+      )
+      .finally(() => setSending(false));
   }
 
   return (
     <section>
-      <Form onSubmit={sendEmail}>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formName">
           <Form.Label>Nombre completo</Form.Label>
-          <Form.Control type="text" placeholder="Nombre completo" name="name" />
+          <Form.Control type="text" placeholder="Nombre completo" name="name" required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Correo electrónico</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Correo electrónico"
-            name="email"
-          />
+          <Form.Control type="email" placeholder="Correo electrónico" name="email" required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formPhone">
           <Form.Label>Teléfono</Form.Label>
-          <Form.Control type="text" placeholder="Teléfono" name="phone" />
+          <Form.Control type="tel" placeholder="Teléfono" name="phone" required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formCompany">
@@ -67,8 +60,8 @@ export const SendEmail = () => {
           <Form.Control type="text" placeholder="Empresa" name="company" />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Enviar
+        <Button variant="primary" type="submit" disabled={sending}>
+          {sending ? "Enviando..." : "Enviar"}
         </Button>
       </Form>
       <MyModal
