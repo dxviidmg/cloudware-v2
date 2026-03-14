@@ -1,25 +1,24 @@
 import Card from "react-bootstrap/Card";
+import { BsWifi, BsSpeedometer2 } from "react-icons/bs";
 import "./packages.css";
 
 export function PackagesCard({ internet_package, color }) {
   return (
-    <Card className="text-center">
-      <Card.Title
-        style={{
-          background: `linear-gradient(135deg, ${color}, ${color}cc)`,
-          padding: "20px 0",
-        }}
-      >
-        <h2 className="text-white">{internet_package.name}</h2>
-      </Card.Title>
-      <Card.Body>
-        <Card.Text as="div" style={{ padding: "20px 0" }}>
-          <span className="card-text">Navega con</span> <br />
-          <span className="card-text2">{internet_package.speed} Mbps</span> <br />
-          <span className="card-text">a solo</span> <br />
-          <span className="card-text2">${internet_package.price}</span> <br />
-          <span className="package-price-label">al mes</span>
-        </Card.Text>
+    <Card className="package-card text-center" style={{ '--card-color': color }}>
+      <div className="package-header" style={{ background: color }}>
+        <BsWifi className="package-icon" />
+        <h2>{internet_package.name}</h2>
+      </div>
+      <Card.Body className="package-body">
+        <div className="speed-badge">
+          <BsSpeedometer2 />
+          <span>{internet_package.speed} Mbps</span>
+        </div>
+        <div className="price-section">
+          <span className="price-currency">$</span>
+          <span className="price-amount">{internet_package.price}</span>
+        </div>
+        <span className="price-period">MXN / mes</span>
       </Card.Body>
     </Card>
   );

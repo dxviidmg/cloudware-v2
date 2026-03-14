@@ -7,16 +7,28 @@
   position: relative;
 }
 
-#home::before, #about-us::before, #packages::before, #contact-us::before {
+#home::before, #about-us::before, #contact-us::before {
   content: '';
   position: absolute;
   inset: 0;
   background: rgba(255, 255, 255, 0.88);
 }
 
+#packages::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d1b4e 60%, #4A2570 100%);
+  opacity: 0.95;
+}
+
 #home > *, #about-us > *, #packages > *, #contact-us > * {
   position: relative;
   z-index: 1;
+}
+
+#packages {
+  color: white;
 }
 
 .paddings {

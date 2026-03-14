@@ -8,12 +8,12 @@ export const Packages = () => {
       <PackagesList
         name={"Inalámbrico"}
         internet_packages={internet_packages}
-        color="var(--primary)"
+        color="#A58CBF"
       />
       <PackagesList
         name={"Fibra óptica"}
         internet_packages={internet_packages2}
-        color="var(--accent)"
+        color="#F5A623"
       />
     </section>
   );
