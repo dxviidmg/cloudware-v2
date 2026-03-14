@@ -1,6 +1,7 @@
 .home-text {
   font-size: 1.2rem;
   line-height: 1.9;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .home-map {
