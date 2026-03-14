@@ -11,7 +11,8 @@
 {
     "name": "Élite",
     "speed": 80,
-    "price": 550
+    "price": 550,
+    "popular": true
 },
 {
     "name": "Premium",

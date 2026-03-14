@@ -1,15 +1,55 @@
+.about-highlight {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
 .about-text {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   line-height: 1.9;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.carousel-wrapper {
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+/* Feature list */
+.about-features {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.carousel-wrapper img {
-  border-radius: 0;
+.about-feature {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.about-feature:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.about-feature-icon {
+  font-size: 1.6rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.about-feature strong {
+  display: block;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.about-feature span {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.85rem;
 }

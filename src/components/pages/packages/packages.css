@@ -1,27 +1,69 @@
+/* ===== SUBTITLE ===== */
+.packages-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.15rem;
+  margin-bottom: 40px;
+}
+
+.packages-description {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
 /* ===== PACKAGE CARD ===== */
 .package-card {
   border: none;
   border-radius: 24px;
   margin: 15px 0;
-  overflow: hidden;
+  overflow: visible;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
 }
 
 .package-card:hover {
   transform: translateY(-12px) scale(1.02);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Popular */
+.package-popular {
+  border-color: var(--accent) !important;
+  box-shadow: 0 8px 30px rgba(245, 166, 35, 0.2);
+}
+
+.package-popular:hover {
+  box-shadow: 0 25px 60px rgba(245, 166, 35, 0.3);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--accent);
+  color: white;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.4);
 }
 
 /* Header */
 .package-header {
-  padding: 30px 20px 25px;
+  padding: 25px 20px 20px;
   position: relative;
   overflow: hidden;
+  border-radius: 24px 24px 0 0;
 }
 
 .package-header::after {
@@ -31,32 +73,25 @@
   left: -10%;
   width: 120%;
   height: 40px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 50%;
-}
-
-.package-icon {
-  font-size: 2rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 8px;
 }
 
 .package-header h2 {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin: 0;
   letter-spacing: 0.5px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* Body */
 .package-body {
-  padding: 30px 20px;
+  padding: 25px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 /* Speed badge */
@@ -64,13 +99,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 18px;
   border-radius: 30px;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 600;
-  font-size: 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .speed-badge svg {
@@ -85,20 +120,40 @@
 }
 
 .price-currency {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
   margin-top: 8px;
   margin-right: 2px;
 }
 
 .price-amount {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 800;
   line-height: 1;
 }
 
 .price-period {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.85rem;
+}
+
+/* CTA Button */
+.package-cta {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 10px 28px;
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
   font-size: 0.9rem;
-  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.package-cta:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+  color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }

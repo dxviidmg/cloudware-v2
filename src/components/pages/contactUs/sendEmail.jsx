@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import "./sendEmail.css";
 import emailjs from "emailjs-com";
@@ -23,13 +23,13 @@ export const SendEmail = () => {
       )
       .then(
         () => {
-          setMessage("El formulario se envió correctamente.");
+          setMessage("¡Mensaje enviado! Te contactaremos pronto.");
           setShowModal(true);
           e.target.reset();
         },
         () => {
           setMessage(
-            "Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo más tarde."
+            "Hubo un error al enviar. Por favor, inténtalo de nuevo más tarde."
           );
           setShowModal(true);
         }
@@ -38,30 +38,40 @@ export const SendEmail = () => {
   }
 
   return (
-    <section>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formName">
-          <Form.Label>Nombre completo</Form.Label>
-          <Form.Control type="text" placeholder="Nombre completo" name="name" required />
-        </Form.Group>
+    <div>
+      <Form onSubmit={handleSubmit} className="contact-form">
+        <Row>
+          <Col sm={6}>
+            <Form.Group className="mb-3" controlId="formName">
+              <Form.Label>Nombre completo</Form.Label>
+              <Form.Control type="text" placeholder="Tu nombre" name="name" required />
+            </Form.Group>
+          </Col>
+          <Col sm={6}>
+            <Form.Group className="mb-3" controlId="formPhone">
+              <Form.Label>Teléfono</Form.Label>
+              <Form.Control type="tel" placeholder="Tu teléfono" name="phone" required />
+            </Form.Group>
+          </Col>
+        </Row>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Correo electrónico</Form.Label>
-          <Form.Control type="email" placeholder="Correo electrónico" name="email" required />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formPhone">
-          <Form.Label>Teléfono</Form.Label>
-          <Form.Control type="tel" placeholder="Teléfono" name="phone" required />
+          <Form.Control type="email" placeholder="Tu correo" name="email" required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formCompany">
-          <Form.Label>Empresa</Form.Label>
-          <Form.Control type="text" placeholder="Empresa" name="company" />
+          <Form.Label>Empresa <span className="optional-label">(opcional)</span></Form.Label>
+          <Form.Control type="text" placeholder="Tu empresa" name="company" />
         </Form.Group>
 
-        <Button variant="primary" type="submit" disabled={sending}>
-          {sending ? "Enviando..." : "Enviar"}
+        <Form.Group className="mb-3" controlId="formMessage">
+          <Form.Label>Mensaje <span className="optional-label">(opcional)</span></Form.Label>
+          <Form.Control as="textarea" rows={3} placeholder="¿En qué podemos ayudarte?" name="message" />
+        </Form.Group>
+
+        <Button variant="primary" type="submit" disabled={sending} className="w-100">
+          {sending ? "Enviando..." : "Enviar mensaje"}
         </Button>
       </Form>
       <MyModal
@@ -69,6 +79,6 @@ export const SendEmail = () => {
         setShowModal={setShowModal}
         message={message}
       />
-    </section>
+    </div>
   );
 };
