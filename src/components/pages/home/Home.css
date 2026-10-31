@@ -32,6 +32,14 @@
   gap: var(--space-4);
 }
 
+.hero-card-wrap {
+  animation: rise 600ms var(--ease) 200ms backwards;
+}
+
+.hero-card-wrap .hero-card {
+  animation: float 6s ease-in-out 1s infinite;
+}
+
 .hero-card {
   padding: var(--space-6);
   background: linear-gradient(160deg, var(--surface-2), var(--surface));
