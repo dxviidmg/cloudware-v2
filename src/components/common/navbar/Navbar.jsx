@@ -31,7 +31,7 @@ export function MyNavbar() {
     <Navbar expand="lg">
       <Container>
         <Navbar.Brand as={Link} href="/">
-          <Image src={logo} height={52} alt="CloudWare" priority style={{ width: "auto" }} />
+          <Image src={logo} height={48} alt="CloudWare MX, cada segundo cuenta" priority style={{ width: "auto" }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Abrir menú" />
         <Navbar.Collapse id="basic-navbar-nav">
