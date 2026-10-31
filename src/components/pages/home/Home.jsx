@@ -46,11 +46,8 @@ export const Home = () => (
             Soluciones de Internet Adaptadas a Tus Necesidades
           </h1>
           <p className="hero-lead rise" style={{ animationDelay: "160ms" }}>
-            Te brindamos las mejores soluciones de conexión a internet, adaptadas a tus necesidades.
-          </p>
-          <p className="hero-lead rise" style={{ animationDelay: "200ms", marginTop: "calc(-1 * var(--space-4))" }}>
-            Tenemos la confianza de que nuestra experiencia y dedicación nos respalda y te garantiza
-            un servicio de calidad.
+            Fibra óptica e internet inalámbrico en Actopan, con servicio de calidad respaldado por
+            nuestra experiencia.
           </p>
           <div className="hero-actions rise" style={{ animationDelay: "240ms" }}>
             <Link href="/paquetes" className="btn-cw btn-cw-primary">
