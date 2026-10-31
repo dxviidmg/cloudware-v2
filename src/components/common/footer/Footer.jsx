@@ -1,12 +1,15 @@
+import Image from "next/image";
 import Link from "next/link";
-import { BsWhatsapp, BsEnvelope, BsClock, BsStickies } from "react-icons/bs";
-import { WHATSAPP_DISPLAY, EMAIL, HOURS } from "../../../data/constants";
+import logo from "../../../assets/images/logo.png";
+import { BsWhatsapp, BsEnvelope, BsClock, BsStickies, BsFacebook } from "react-icons/bs";
+import { WHATSAPP_DISPLAY, EMAIL, HOURS, FACEBOOK_URL } from "../../../data/constants";
 import "./Footer.css";
 
 export const Footer = () => (
   <footer className="footer">
     <div className="container-cw footer-grid">
       <div>
+        <Image src={logo} alt="CloudWare MX" height={44} style={{ width: "auto" }} className="footer-logo" />
         <h2>Soporte técnico</h2>
         <p>
           En CloudWare la satisfacción de nuestros clientes es lo más importante; por eso hacemos lo
@@ -26,6 +29,12 @@ export const Footer = () => (
         </p>
         <p className="footer-line">
           <BsClock aria-hidden="true" /> {HOURS}
+        </p>
+        <p className="footer-line">
+          <BsFacebook aria-hidden="true" />
+          <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer">
+            Síguenos en Facebook
+          </a>
         </p>
       </div>
       <nav aria-label="Pie de página">

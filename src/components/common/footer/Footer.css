@@ -66,3 +66,16 @@
   margin: 0;
   font-size: 0.85rem;
 }
+
+.footer-line a {
+  color: var(--text-muted);
+}
+
+.footer-line a:hover {
+  color: var(--text);
+}
+
+.footer-logo {
+  display: block;
+  margin-bottom: var(--space-5);
+}

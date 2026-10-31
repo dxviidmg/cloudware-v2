@@ -54,6 +54,7 @@ const jsonLd = {
   "url": "https://cloudwaremx.com",
   "logo": "https://cloudwaremx.com/logo512.png",
   "description": "Proveedor de servicios de internet por fibra óptica e inalámbrico en Actopan, Hidalgo.",
+  "sameAs": ["https://www.facebook.com/share/1GjR9zMfbf/"],
   "telephone": "+527721292969",
   "email": "contacto@cloudwaremx.com",
   "address": {
