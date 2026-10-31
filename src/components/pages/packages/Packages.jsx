@@ -51,11 +51,11 @@ export const Packages = () => {
           ))}
         </div>
 
-        <div role="tabpanel" id={`panel-${group.id}`} aria-labelledby={`tab-${group.id}`} tabIndex={0}>
+        <div key={group.id} className="rise" role="tabpanel" id={`panel-${group.id}`} aria-labelledby={`tab-${group.id}`} tabIndex={0}>
           <p className="packages-description">{group.description}</p>
           <div className="packages-grid">
-            {group.plans.map((plan) => (
-              <PackageCard key={plan.name} plan={plan} groupLabel={group.label} />
+            {group.plans.map((plan, i) => (
+              <PackageCard key={plan.name} plan={plan} groupLabel={group.label} index={i} />
             ))}
           </div>
         </div>

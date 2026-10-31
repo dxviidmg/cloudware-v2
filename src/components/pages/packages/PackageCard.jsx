@@ -1,12 +1,15 @@
 import { BsSpeedometer2, BsStarFill } from "react-icons/bs";
 import { whatsappLink } from "../../../data/constants";
 
-export function PackageCard({ plan, groupLabel }) {
+export function PackageCard({ plan, groupLabel, index = 0 }) {
   const { name, speed, price, popular } = plan;
   const message = `Hola, me interesa el paquete ${name} de ${groupLabel} (${speed} Mbps)`;
 
   return (
-    <article className={`card-cw package-card ${popular ? "package-popular" : ""}`}>
+    <article
+      className={`card-cw package-card rise ${popular ? "package-popular" : ""}`}
+      style={{ animationDelay: `${index * 70}ms` }}
+    >
       {popular && (
         <span className="popular-badge">
           <BsStarFill aria-hidden="true" /> Más popular
