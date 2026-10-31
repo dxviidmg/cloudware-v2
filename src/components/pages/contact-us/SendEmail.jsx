@@ -2,17 +2,21 @@
 
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import { packageGroups } from "../../../data/packages";
 import "./SendEmail.css";
 
-const services = [
-  { value: "Fibra óptica", label: "Fibra óptica" },
-  { value: "Inalámbrico", label: "Inalámbrico" },
-  { value: "No estoy seguro", label: "No estoy seguro" },
-];
+const NOT_SURE = "No estoy seguro, necesito asesoría";
+
+const planLabel = (group, plan) => `${group.label} ${plan.name} · ${plan.speed} Mbps`;
 
 export const SendEmail = () => {
   const [status, setStatus] = useState(null);
   const [sending, setSending] = useState(false);
+  const [service, setService] = useState("");
+
+  const selected = packageGroups
+    .flatMap((g) => g.plans.map((plan) => ({ plan, value: planLabel(g, plan) })))
+    .find((o) => o.value === service);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -31,6 +35,7 @@ export const SendEmail = () => {
         () => {
           setStatus({ ok: true, text: "¡Mensaje enviado! Te contactaremos pronto." });
           form.reset();
+          setService("");
         },
         () =>
           setStatus({
@@ -59,17 +64,41 @@ export const SendEmail = () => {
         <input id="email" name="email" type="email" className="form-control" autoComplete="email" required />
       </div>
 
-      <fieldset className="field">
-        <legend>Servicio de interés</legend>
-        <div className="radio-row">
-          {services.map(({ value, label }, i) => (
-            <label className="radio-pill" key={value}>
-              <input type="radio" name="service" value={value} defaultChecked={i === services.length - 1} />
-              <span>{label}</span>
-            </label>
+      <div className="field">
+        <label htmlFor="address">Domicilio</label>
+        <input id="address" name="address" type="text" className="form-control" autoComplete="street-address" required />
+      </div>
+
+      <div className="field">
+        <label htmlFor="service">Servicio</label>
+        <select
+          id="service"
+          name="service"
+          className="form-select"
+          value={service}
+          onChange={(e) => setService(e.target.value)}
+          required
+        >
+          <option value="" disabled>Selecciona un paquete</option>
+          {packageGroups.map((g) => (
+            <optgroup label={g.label} key={g.id}>
+              {g.plans.map((plan) => (
+                <option key={plan.name} value={planLabel(g, plan)}>
+                  {plan.name} · {plan.speed} Mbps · ${plan.price}/mes
+                </option>
+              ))}
+            </optgroup>
           ))}
-        </div>
-      </fieldset>
+          <option value={NOT_SURE}>{NOT_SURE}</option>
+        </select>
+        <p className="selected-plan" aria-live="polite">
+          {selected && (
+            <>
+              Seleccionado: <strong>{selected.value}</strong> — ${selected.plan.price} MXN / mes
+            </>
+          )}
+        </p>
+      </div>
 
       <div className="field">
         <label htmlFor="message">

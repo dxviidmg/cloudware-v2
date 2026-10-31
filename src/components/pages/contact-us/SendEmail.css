@@ -58,44 +58,28 @@
   resize: vertical;
 }
 
-.radio-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.radio-pill {
-  position: relative;
-  margin: 0 !important;
-  cursor: pointer;
-}
-
-.radio-pill input {
-  position: absolute;
-  opacity: 0;
-}
-
-.radio-pill span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: var(--space-2) var(--space-4);
-  font-weight: 500;
-  color: var(--text-muted);
+.contact-form .form-select {
+  min-height: 48px;
+  padding: var(--space-3) var(--space-4);
+  color: var(--text);
+  background-color: var(--bg);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: var(--radius-pill);
-  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+  border-radius: var(--radius-sm);
 }
 
-.radio-pill input:checked + span {
-  color: var(--on-accent);
-  background: var(--accent);
-  border-color: var(--accent);
+.contact-form .form-select:focus {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px rgba(255, 208, 128, 0.35);
 }
 
-.radio-pill input:focus-visible + span {
-  outline: 3px solid var(--ring);
-  outline-offset: 3px;
+.selected-plan {
+  min-height: 1.7em;
+  margin: var(--space-2) 0 0;
+  font-size: 0.9rem;
+}
+
+.selected-plan strong {
+  color: var(--accent-light);
 }
 
 .form-status {
