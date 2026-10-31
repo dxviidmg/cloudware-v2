@@ -14,7 +14,7 @@ export const packageGroups = [
   {
     id: "inalambrico",
     label: "Inalámbrico",
-    description: "Cobertura amplia con tecnología inalámbrica donde la fibra aún no llega",
+    description: "Cobertura amplia con tecnología inalámbrica de última generación",
     plans: [
       { name: "Básico", speed: 10, price: 250 },
       { name: "Intermedio", speed: 15, price: 300, popular: true },

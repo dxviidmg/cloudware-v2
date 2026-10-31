@@ -27,9 +27,9 @@ export const Packages = () => {
       <div className="container-cw">
         <Title
           as="h1"
-          eyebrow="Paquetes"
-          title="Elige el plan que mejor se adapte a ti"
-          subtitle="Sin contratos forzosos, sin letras chiquitas."
+          eyebrow="Nuestros planes"
+          title="Nuestros paquetes"
+          subtitle="Elige el plan que mejor se adapte a ti. Sin contratos forzosos, sin letras chiquitas."
         />
 
         <div className="tabs" role="tablist" aria-label="Tipo de servicio">

@@ -47,3 +47,26 @@
 .map-wrapper iframe {
   display: block;
 }
+
+.support-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-5);
+  margin-bottom: var(--space-5);
+  padding: var(--space-5) var(--space-6);
+}
+
+.support-note strong,
+.support-note span {
+  display: block;
+}
+
+.support-note span {
+  color: var(--text-muted);
+}
+
+.support-note div {
+  flex: 1 1 260px;
+}

@@ -1,7 +1,7 @@
 import { BsGeoAlt, BsWhatsapp, BsEnvelope, BsClock } from "react-icons/bs";
 import { Reveal } from "../../common/reveal/Reveal";
 import { Title } from "../../common/title/Title";
-import { WHATSAPP_DISPLAY, EMAIL, ADDRESS, HOURS } from "../../../data/constants";
+import { WHATSAPP_DISPLAY, WHATSAPP_URL, EMAIL, ADDRESS, HOURS } from "../../../data/constants";
 import { Map } from "./Map";
 import { SendEmail } from "./SendEmail";
 import "./ContactUs.css";
@@ -19,9 +19,19 @@ export const ContactUs = () => (
       <Title
         as="h1"
         eyebrow="Contacto"
-        title="Hablemos de tu internet"
+        title="Contáctanos"
         subtitle="¿Tienes dudas o quieres contratar? Escríbenos y te respondemos en menos de 24 horas."
       />
+
+      <Reveal className="card-cw support-note">
+        <div>
+          <strong>Área técnica siempre disponible</strong>
+          <span>Atendemos por WhatsApp y teléfono.</span>
+        </div>
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-cw btn-cw-primary">
+          <BsWhatsapp aria-hidden="true" /> WhatsApp
+        </a>
+      </Reveal>
 
       <ul className="grid-auto contact-info">
         {contactInfo.map(({ icon: Icon, label, value }, i) => (

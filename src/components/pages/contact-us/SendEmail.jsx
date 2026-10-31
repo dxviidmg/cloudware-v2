@@ -7,7 +7,7 @@ import "./SendEmail.css";
 
 const NOT_SURE = "No estoy seguro, necesito asesoría";
 
-const planLabel = (group, plan) => `${group.label} ${plan.name} · ${plan.speed} Mbps`;
+const planLabel = (group, plan) => `${group.label} - ${plan.name} ${plan.speed} Mbps`;
 
 export const SendEmail = () => {
   const [status, setStatus] = useState(null);
@@ -51,11 +51,11 @@ export const SendEmail = () => {
       <div className="field-row">
         <div className="field">
           <label htmlFor="name">Nombre completo</label>
-          <input id="name" name="name" type="text" className="form-control" autoComplete="name" required />
+          <input id="name" name="name" type="text" placeholder="Tu nombre" className="form-control" autoComplete="name" required />
         </div>
         <div className="field">
           <label htmlFor="phone">Teléfono</label>
-          <input id="phone" name="phone" type="tel" inputMode="tel" className="form-control" autoComplete="tel" required />
+          <input id="phone" name="phone" type="tel" inputMode="tel" placeholder="Tu teléfono" className="form-control" autoComplete="tel" required />
         </div>
       </div>
 
@@ -66,11 +66,11 @@ export const SendEmail = () => {
 
       <div className="field">
         <label htmlFor="address">Domicilio</label>
-        <input id="address" name="address" type="text" className="form-control" autoComplete="street-address" required />
+        <input id="address" name="address" type="text" placeholder="Tu domicilio" className="form-control" autoComplete="street-address" required />
       </div>
 
       <div className="field">
-        <label htmlFor="service">Servicio</label>
+        <label htmlFor="service">Servicios</label>
         <select
           id="service"
           name="service"
@@ -94,7 +94,7 @@ export const SendEmail = () => {
         <p className="selected-plan" aria-live="polite">
           {selected && (
             <>
-              Seleccionado: <strong>{selected.value}</strong> — ${selected.plan.price} MXN / mes
+              Seleccionado: <strong>{selected.value} - ${selected.plan.price}</strong>
             </>
           )}
         </p>
@@ -104,7 +104,7 @@ export const SendEmail = () => {
         <label htmlFor="message">
           Mensaje <span className="optional-label">(opcional)</span>
         </label>
-        <textarea id="message" name="message" rows={3} className="form-control" />
+        <textarea id="message" name="message" rows={3} placeholder="¿En qué podemos ayudarte?" className="form-control" />
       </div>
 
       <button type="submit" disabled={sending} className="btn-cw btn-cw-primary">

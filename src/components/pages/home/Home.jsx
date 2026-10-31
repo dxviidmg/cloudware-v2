@@ -9,7 +9,7 @@ import "./Home.css";
 const stats = [
   { to: 2000, prefix: "+", label: "clientes activos" },
   { to: 99, suffix: "%", label: "uptime garantizado" },
-  { to: 5, suffix: "+", label: "años conectando" },
+  { to: 5, suffix: "+", label: "años de experiencia" },
   { text: "24/7", label: "soporte técnico" },
 ];
 
@@ -17,17 +17,17 @@ const services = [
   {
     icon: BsWifi,
     title: "Internet Hogar",
-    desc: "De 40 a 600 Mbps por fibra óptica para streaming, clases y trabajo desde casa.",
+    desc: "40 Mbps a 600 Mbps. Fibra óptica directa a tu casa, sin degradación.",
   },
   {
     icon: BsShieldLock,
     title: "Red Segura",
-    desc: "Protección contra ataques DDoS, firewall administrado y monitoreo constante.",
+    desc: "Protección contra DDoS, firewall administrado y monitoreo 24/7.",
   },
   {
     icon: BsHeadset,
     title: "Soporte Inmediato",
-    desc: "Atención por WhatsApp y teléfono. Atendemos tu reporte a la brevedad.",
+    desc: "Atención por WhatsApp y teléfono.",
   },
 ];
 
@@ -38,11 +38,14 @@ export const Home = () => (
         <div>
           <span className="eyebrow rise">Conectando tu mundo</span>
           <h1 className="rise" style={{ animationDelay: "80ms" }}>
-            Soluciones de internet adaptadas a tus necesidades
+            Soluciones de Internet Adaptadas a Tus Necesidades
           </h1>
           <p className="hero-lead rise" style={{ animationDelay: "160ms" }}>
-            Fibra óptica e internet inalámbrico en Actopan y municipios cercanos. Red propia, sin
-            contratos forzosos y sin letras chiquitas.
+            Te brindamos las mejores soluciones de conexión a internet, adaptadas a tus necesidades.
+          </p>
+          <p className="hero-lead rise" style={{ animationDelay: "200ms", marginTop: "calc(-1 * var(--space-4))" }}>
+            Tenemos la confianza de que nuestra experiencia y dedicación nos respalda y te garantiza
+            un servicio de calidad.
           </p>
           <div className="hero-actions rise" style={{ animationDelay: "240ms" }}>
             <Link href="/paquetes" className="btn-cw btn-cw-primary">
@@ -94,8 +97,8 @@ export const Home = () => (
         <Reveal>
           <Title
             eyebrow="Servicios"
-            title="Todo lo que necesitas para estar conectado"
-            subtitle="Una red propia y un equipo local que responde cuando lo necesitas."
+            title="Todo lo que necesitas conectado"
+            subtitle="Soluciones de conectividad para cada tipo de usuario, desde el hogar hasta la empresa."
           />
         </Reveal>
         <div className="grid-auto">
