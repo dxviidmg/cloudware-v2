@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { BsWifi, BsShieldCheck, BsPeople, BsGeoAlt } from "react-icons/bs";
+import { Reveal } from "../../common/reveal/Reveal";
 import { Title } from "../../common/title/Title";
 import img1 from "../../../assets/images/slices/1.jpeg";
 import img2 from "../../../assets/images/slices/2.jpeg";
@@ -43,8 +44,8 @@ export const AboutUs = () => (
             brindar el servicio que te mereces.
           </p>
           <ul className="about-features">
-            {features.map(({ icon: Icon, title, desc }) => (
-              <li className="card-cw about-feature" key={title}>
+            {features.map(({ icon: Icon, title, desc }, i) => (
+              <Reveal as="li" className="card-cw about-feature" key={title} delay={i * 80}>
                 <span className="icon-chip">
                   <Icon aria-hidden="true" />
                 </span>
@@ -52,20 +53,21 @@ export const AboutUs = () => (
                   <strong>{title}</strong>
                   <span>{desc}</span>
                 </div>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>
 
         <div className="gallery">
           {gallery.map(({ src, alt }, i) => (
+            <Reveal key={alt} delay={i * 120} className={i === 0 ? "gallery-wide" : ""}>
             <Image
-              key={alt}
               src={src}
               alt={alt}
               sizes="(max-width: 991px) 100vw, 560px"
-              className={`gallery-img ${i === 0 ? "gallery-wide" : ""}`}
+              className="gallery-img"
             />
+            </Reveal>
           ))}
         </div>
       </div>
@@ -73,20 +75,24 @@ export const AboutUs = () => (
 
     <section className="section section-alt">
       <div className="container-cw">
+        <Reveal>
         <Title
           eyebrow="Cobertura"
           title="Red propia en Actopan y alrededores"
           subtitle="Llegamos con fibra óptica y antena a comunidades cercanas."
         />
+        </Reveal>
         <dl className="coverage-stats">
-          {coverage.map((c) => (
-            <div className="card-cw coverage-stat" key={c.label}>
+          {coverage.map((c, i) => (
+            <Reveal className="card-cw coverage-stat" key={c.label} delay={i * 80}>
               <dt>{c.label}</dt>
               <dd className="tabular">{c.value}</dd>
-            </div>
+            </Reveal>
           ))}
         </dl>
+        <Reveal delay={100}>
         <Image src={map} alt="Mapa de cobertura de CloudWare en la región de Actopan" className="coverage-map" sizes="(max-width: 991px) 100vw, 560px" />
+        </Reveal>
       </div>
     </section>
   </>

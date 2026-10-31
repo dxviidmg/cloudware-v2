@@ -1,4 +1,5 @@
 import { BsGeoAlt, BsWhatsapp, BsEnvelope, BsClock } from "react-icons/bs";
+import { Reveal } from "../../common/reveal/Reveal";
 import { Title } from "../../common/title/Title";
 import { WHATSAPP_DISPLAY, EMAIL, ADDRESS, HOURS } from "../../../data/constants";
 import { Map } from "./Map";
@@ -23,28 +24,28 @@ export const ContactUs = () => (
       />
 
       <ul className="grid-auto contact-info">
-        {contactInfo.map(({ icon: Icon, label, value }) => (
-          <li className="card-cw contact-info-card" key={label}>
+        {contactInfo.map(({ icon: Icon, label, value }, i) => (
+          <Reveal as="li" className="card-cw contact-info-card" key={label} delay={i * 80}>
             <span className="icon-chip">
               <Icon aria-hidden="true" />
             </span>
             <strong>{label}</strong>
             <span>{value}</span>
-          </li>
+          </Reveal>
         ))}
       </ul>
 
       <div className="contact-grid">
-        <div>
+        <Reveal>
           <h2 className="contact-title">Envíanos un mensaje</h2>
           <SendEmail />
-        </div>
-        <div>
+        </Reveal>
+        <Reveal delay={120}>
           <h2 className="contact-title">Encuéntranos</h2>
           <div className="map-wrapper">
             <Map />
           </div>
-        </div>
+        </Reveal>
       </div>
     </div>
   </section>
