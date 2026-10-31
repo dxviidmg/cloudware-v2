@@ -1,33 +1,65 @@
 "use client";
 
-import { PackagesList } from "./PackagesList";
-import internet_packages from "../../../data/paquetes_alambricos.json";
-import internet_packages2 from "../../../data/paquetes_fibra.json";
+import { useRef, useState } from "react";
 import { Title } from "../../common/title/Title";
-import { Container } from "react-bootstrap";
+import { PackageCard } from "./PackageCard";
+import { packageGroups } from "../../../data/packages";
+import "./Packages.css";
 
 export const Packages = () => {
-  return (
-    <section id="packages" className="paddings">
-      <Title title={"Nuestros paquetes"} color={"white"} />
-      <Container>
-        <p className="text-center section-subtitle">
-          Elige el plan que mejor se adapte a ti. Sin contratos forzosos, sin letras chiquitas.
-        </p>
-      </Container>
+  const [active, setActive] = useState(packageGroups[0].id);
+  const tabRefs = useRef({});
 
-      <PackagesList
-        name={"📡 Inalámbrico"}
-        description={"Cobertura amplia con tecnología inalámbrica de última generación"}
-        internet_packages={internet_packages}
-        color="#A58CBF"
-      />
-      <PackagesList
-        name={"⚡ Fibra óptica"}
-        description={"Máxima velocidad y estabilidad con fibra directa a tu hogar"}
-        internet_packages={internet_packages2}
-        color="#F5A623"
-      />
+  function onKeyDown(e, index) {
+    const last = packageGroups.length - 1;
+    const next = { ArrowRight: index === last ? 0 : index + 1, ArrowLeft: index === 0 ? last : index - 1, Home: 0, End: last }[e.key];
+    if (next === undefined) return;
+    e.preventDefault();
+    const id = packageGroups[next].id;
+    setActive(id);
+    tabRefs.current[id]?.focus();
+  }
+
+  const group = packageGroups.find((g) => g.id === active);
+
+  return (
+    <section className="section">
+      <div className="container-cw">
+        <Title
+          as="h1"
+          eyebrow="Paquetes"
+          title="Elige el plan que mejor se adapte a ti"
+          subtitle="Sin contratos forzosos, sin letras chiquitas."
+        />
+
+        <div className="tabs" role="tablist" aria-label="Tipo de servicio">
+          {packageGroups.map((g, i) => (
+            <button
+              key={g.id}
+              ref={(el) => (tabRefs.current[g.id] = el)}
+              role="tab"
+              id={`tab-${g.id}`}
+              aria-selected={active === g.id}
+              aria-controls={`panel-${g.id}`}
+              tabIndex={active === g.id ? 0 : -1}
+              className="tab"
+              onClick={() => setActive(g.id)}
+              onKeyDown={(e) => onKeyDown(e, i)}
+            >
+              {g.label}
+            </button>
+          ))}
+        </div>
+
+        <div role="tabpanel" id={`panel-${group.id}`} aria-labelledby={`tab-${group.id}`} tabIndex={0}>
+          <p className="packages-description">{group.description}</p>
+          <div className="packages-grid">
+            {group.plans.map((plan) => (
+              <PackageCard key={plan.name} plan={plan} groupLabel={group.label} />
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

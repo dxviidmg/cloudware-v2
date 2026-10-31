@@ -1,43 +1,35 @@
-"use client";
-
-import Card from "react-bootstrap/Card";
 import { BsSpeedometer2, BsStarFill } from "react-icons/bs";
-import { WHATSAPP_NUMBER } from "../../../data/constants";
-import "./Packages.css";
+import { whatsappLink } from "../../../data/constants";
 
-export function PackagesCard({ internet_package, color, popular }) {
-  const whatsappMsg = `Hola, me interesa el paquete ${internet_package.name} de ${internet_package.speed} Mbps`;
+export function PackageCard({ plan, groupLabel }) {
+  const { name, speed, price, popular } = plan;
+  const message = `Hola, me interesa el paquete ${name} de ${groupLabel} (${speed} Mbps)`;
 
   return (
-    <Card className={`package-card text-center ${popular ? "package-popular" : ""}`}>
+    <article className={`card-cw package-card ${popular ? "package-popular" : ""}`}>
       {popular && (
-        <div className="popular-badge">
-          <BsStarFill /> Popular
-        </div>
+        <span className="popular-badge">
+          <BsStarFill aria-hidden="true" /> Más popular
+        </span>
       )}
-      <div className="package-header" style={{ background: color }}>
-        <h2>{internet_package.name}</h2>
-      </div>
-      <Card.Body className="package-body">
-        <div className="speed-badge">
-          <BsSpeedometer2 />
-          <span>{internet_package.speed} Mbps</span>
-        </div>
-        <div className="price-section">
-          <span className="price-currency">$</span>
-          <span className="price-amount">{internet_package.price}</span>
-        </div>
-        <span className="price-period">MXN / mes</span>
-        <a
-          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMsg)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="package-cta"
-          style={{ background: color }}
-        >
-          ¡Lo quiero!
-        </a>
-      </Card.Body>
-    </Card>
+      <h3>{name}</h3>
+      <p className="package-speed tabular">
+        <BsSpeedometer2 aria-hidden="true" /> {speed} Mbps
+      </p>
+      <p className="package-price tabular">
+        <span aria-hidden="true">$</span>
+        {price}
+        <small> MXN / mes</small>
+      </p>
+      <a
+        href={whatsappLink(message)}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`btn-cw ${popular ? "btn-cw-primary" : "btn-cw-ghost"}`}
+        aria-label={`Lo quiero: paquete ${name} de ${groupLabel}, ${speed} Mbps por $${price} al mes`}
+      >
+        ¡Lo quiero!
+      </a>
+    </article>
   );
 }
