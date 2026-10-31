@@ -41,13 +41,14 @@ export const Footer = () => (
         <h2>Navegación</h2>
         <ul>
           <li><Link href="/nosotros">Nosotros</Link></li>
+          <li><Link href="/cobertura">Cobertura</Link></li>
           <li><Link href="/paquetes">Paquetes</Link></li>
           <li><Link href="/contacto">Contacto</Link></li>
         </ul>
       </nav>
     </div>
     <div className="container-cw footer-copyright">
-      <p>© {new Date().getFullYear()} CloudWare MX. Todos los derechos reservados.</p>
+      <p>© {new Date().getFullYear()} CloudWare MX · Actopan, Hidalgo. Todos los derechos reservados.</p>
     </div>
   </footer>
 );

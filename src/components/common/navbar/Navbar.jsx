@@ -21,6 +21,7 @@ const pdfs = [
 
 const links = [
   { href: "/nosotros", label: "Nosotros" },
+  { href: "/cobertura", label: "Cobertura" },
   { href: "/paquetes", label: "Paquetes" },
   { href: "/contacto", label: "Contáctanos" },
 ];

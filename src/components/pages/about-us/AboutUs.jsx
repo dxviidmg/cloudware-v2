@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { BsWifi, BsShieldCheck, BsPeople, BsGeoAlt } from "react-icons/bs";
+import { BsWifi, BsShieldCheck, BsPeople } from "react-icons/bs";
 import { Reveal } from "../../common/reveal/Reveal";
 import { Title } from "../../common/title/Title";
 import img1 from "../../../assets/images/slices/1.jpeg";
@@ -11,20 +11,6 @@ const features = [
   { icon: BsWifi, title: "Conexión estable", desc: "Internet de alta velocidad sin interrupciones" },
   { icon: BsShieldCheck, title: "Servicio confiable", desc: "Soporte técnico de lunes a sábado" },
   { icon: BsPeople, title: "Trato cercano", desc: "Empresa local que entiende tus necesidades" },
-  { icon: BsGeoAlt, title: "Presencia local", desc: "Equipo en Actopan, listo para visitarte" },
-];
-
-const coverage = [
-  { value: "4", label: "municipios" },
-  { value: "40+", label: "comunidades" },
-  { value: "2", label: "tecnologías" },
-  { value: "100%", label: "red propia" },
-];
-
-const legend = [
-  { tone: "fiber", title: "Fibra disponible", desc: "Fibra óptica directa a tu hogar" },
-  { tone: "antenna", title: "Antena disponible", desc: "Internet inalámbrico por antena" },
-  { tone: "soon", title: "Próxima cobertura de fibra", desc: "Zonas donde estamos ampliando la red" },
 ];
 
 const gallery = [
@@ -40,12 +26,12 @@ export const AboutUs = () => (
         <div>
           <Title as="h1" eyebrow="Quiénes somos" title="Conectamos Hidalgo desde el corazón de Actopan" />
           <p>
-            Somos una empresa hidalguense que nace del esfuerzo, trabajo y dedicación, en busca de
+            Somos una empresa Hidalguense que nace del esfuerzo, trabajo y dedicación, en busca de
             satisfacer la necesidad cotidiana de contar con una conexión a internet confiable y de
             calidad.
           </p>
           <p>
-            El desarrollo tecnológico está en constante cambio, y por eso nos esforzamos a diario para
+            El desarrollo tecnológico se encuentra en constante cambio, y es por eso que nos esforzamos a diario para
             brindar el servicio que te mereces.
           </p>
           <ul className="about-features">
@@ -78,35 +64,5 @@ export const AboutUs = () => (
       </div>
     </section>
 
-    <section className="section section-alt">
-      <div className="container-cw">
-        <Reveal>
-        <Title
-          eyebrow="Cobertura"
-          title="Red propia en Actopan y alrededores"
-          subtitle="Llegamos con fibra óptica y antena a comunidades cercanas."
-        />
-        </Reveal>
-        <dl className="coverage-stats">
-          {coverage.map((c, i) => (
-            <Reveal className="card-cw coverage-stat" key={c.label} delay={i * 80}>
-              <dt>{c.label}</dt>
-              <dd className="tabular">{c.value}</dd>
-            </Reveal>
-          ))}
-        </dl>
-        <ul className="coverage-legend">
-          {legend.map(({ tone, title, desc }, i) => (
-            <Reveal as="li" className="card-cw legend-item" key={title} delay={i * 80}>
-              <span className={`legend-dot legend-${tone}`} aria-hidden="true" />
-              <div>
-                <strong>{title}</strong>
-                <span>{desc}</span>
-              </div>
-            </Reveal>
-          ))}
-        </ul>
-      </div>
-    </section>
   </>
 );
