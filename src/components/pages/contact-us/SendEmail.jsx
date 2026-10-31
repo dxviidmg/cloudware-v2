@@ -1,86 +1,90 @@
 "use client";
 
-import { Button, Row, Col } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
-import "./SendEmail.css";
+import { useState } from "react";
 import emailjs from "emailjs-com";
-import React, { useState } from "react";
-import { MyModal } from "../../common/modal/Modal";
+import "./SendEmail.css";
+
+const services = [
+  { value: "Fibra óptica", label: "Fibra óptica" },
+  { value: "Inalámbrico", label: "Inalámbrico" },
+  { value: "No estoy seguro", label: "No estoy seguro" },
+];
 
 export const SendEmail = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState(null);
   const [sending, setSending] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
+    const form = e.currentTarget;
     setSending(true);
+    setStatus(null);
 
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        e.target,
+        form,
         process.env.NEXT_PUBLIC_EMAILJS_USER_KEY
       )
       .then(
         () => {
-          setMessage("¡Mensaje enviado! Te contactaremos pronto.");
-          setShowModal(true);
-          e.target.reset();
+          setStatus({ ok: true, text: "¡Mensaje enviado! Te contactaremos pronto." });
+          form.reset();
         },
-        () => {
-          setMessage(
-            "Hubo un error al enviar. Por favor, inténtalo de nuevo más tarde."
-          );
-          setShowModal(true);
-        }
+        () =>
+          setStatus({
+            ok: false,
+            text: "No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.",
+          })
       )
       .finally(() => setSending(false));
   }
 
   return (
-    <div>
-      <Form onSubmit={handleSubmit} className="contact-form">
-        <Row>
-          <Col sm={6}>
-            <Form.Group className="mb-3" controlId="formName">
-              <Form.Label>Nombre completo</Form.Label>
-              <Form.Control type="text" placeholder="Tu nombre" name="name" required />
-            </Form.Group>
-          </Col>
-          <Col sm={6}>
-            <Form.Group className="mb-3" controlId="formPhone">
-              <Form.Label>Teléfono</Form.Label>
-              <Form.Control type="tel" placeholder="Tu teléfono" name="phone" required />
-            </Form.Group>
-          </Col>
-        </Row>
+    <form onSubmit={handleSubmit} className="card-cw contact-form">
+      <div className="field-row">
+        <div className="field">
+          <label htmlFor="name">Nombre completo</label>
+          <input id="name" name="name" type="text" className="form-control" autoComplete="name" required />
+        </div>
+        <div className="field">
+          <label htmlFor="phone">Teléfono</label>
+          <input id="phone" name="phone" type="tel" inputMode="tel" className="form-control" autoComplete="tel" required />
+        </div>
+      </div>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Correo electrónico</Form.Label>
-          <Form.Control type="email" placeholder="Tu correo" name="email" required />
-        </Form.Group>
+      <div className="field">
+        <label htmlFor="email">Correo electrónico</label>
+        <input id="email" name="email" type="email" className="form-control" autoComplete="email" required />
+      </div>
 
-        <Form.Group className="mb-3" controlId="formCompany">
-          <Form.Label>Empresa <span className="optional-label">(opcional)</span></Form.Label>
-          <Form.Control type="text" placeholder="Tu empresa" name="company" />
-        </Form.Group>
+      <fieldset className="field">
+        <legend>Servicio de interés</legend>
+        <div className="radio-row">
+          {services.map(({ value, label }, i) => (
+            <label className="radio-pill" key={value}>
+              <input type="radio" name="service" value={value} defaultChecked={i === services.length - 1} />
+              <span>{label}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
 
-        <Form.Group className="mb-3" controlId="formMessage">
-          <Form.Label>Mensaje <span className="optional-label">(opcional)</span></Form.Label>
-          <Form.Control as="textarea" rows={3} placeholder="¿En qué podemos ayudarte?" name="message" />
-        </Form.Group>
+      <div className="field">
+        <label htmlFor="message">
+          Mensaje <span className="optional-label">(opcional)</span>
+        </label>
+        <textarea id="message" name="message" rows={3} className="form-control" />
+      </div>
 
-        <Button variant="primary" type="submit" disabled={sending} className="w-100">
-          {sending ? "Enviando..." : "Enviar mensaje"}
-        </Button>
-      </Form>
-      <MyModal
-        showModal={showModal}
-        setShowModal={setShowModal}
-        message={message}
-      />
-    </div>
+      <button type="submit" disabled={sending} className="btn-cw btn-cw-primary">
+        {sending ? "Enviando..." : "Enviar mensaje"}
+      </button>
+
+      <p role="status" className={`form-status ${status ? (status.ok ? "ok" : "error") : ""}`}>
+        {status?.text}
+      </p>
+    </form>
   );
 };
