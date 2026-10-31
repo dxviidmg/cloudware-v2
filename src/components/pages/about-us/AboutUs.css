@@ -1,50 +1,101 @@
-.about-highlight {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1.4;
-  margin-bottom: 20px;
+.about-grid {
+  display: grid;
+  gap: var(--space-7);
+  align-items: center;
 }
 
-.about-text {
-  font-size: 1.05rem;
-  line-height: 1.9;
-  color: rgba(255, 255, 255, 0.8);
+@media (min-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-/* Feature list */
+.about-grid .heading {
+  margin: 0 0 var(--space-5);
+  text-align: left;
+}
+
 .about-features {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
 }
 
 .about-feature {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 14px 18px;
+  gap: var(--space-4);
+  padding: var(--space-4);
 }
 
-.about-feature:hover {
-  transform: translateX(5px);
-}
-
-.about-feature-icon {
-  font-size: 1.6rem;
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-.about-feature strong {
+.about-feature strong,
+.about-feature span:not(.icon-chip) {
   display: block;
-  color: white;
-  font-size: 0.95rem;
-  font-weight: 600;
 }
 
-.about-feature span {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.85rem;
+.about-feature span:not(.icon-chip) {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.gallery-wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 8;
+}
+
+.coverage-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin: 0 0 var(--space-7);
+}
+
+@media (min-width: 768px) {
+  .coverage-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.coverage-stat {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: var(--space-5);
+  text-align: center;
+}
+
+.coverage-stat dt {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.coverage-stat dd {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.coverage-map {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin: 0 auto;
 }
