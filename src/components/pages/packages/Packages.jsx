@@ -1,3 +1,5 @@
+"use client";
+
 import { PackagesList } from "./PackagesList";
 import internet_packages from "../../../data/paquetes_alambricos.json";
 import internet_packages2 from "../../../data/paquetes_fibra.json";

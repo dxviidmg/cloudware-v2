@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import "./SendEmail.css";
@@ -16,10 +18,10 @@ export const SendEmail = () => {
 
     emailjs
       .sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         e.target,
-        process.env.REACT_APP_EMAILJS_USER_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_USER_KEY
       )
       .then(
         () => {

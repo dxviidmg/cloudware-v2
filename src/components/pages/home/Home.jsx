@@ -1,3 +1,5 @@
+"use client";
+
 import { Title } from "../../common/title/Title";
 import { Row, Col, Container, Image } from "react-bootstrap";
 import map from "../../../assets/images/Map.png";
@@ -20,10 +22,10 @@ export const Home = () => {
               Tenemos la confianza de que nuestra experiencia y dedicación nos
               respalda y te garantiza un servicio de calidad.
             </p>
-            <Image src={devices} className="img-fluid mt-4" alt="Dispositivos conectados" />
+            <Image src={devices.src} className="img-fluid mt-4" alt="Dispositivos conectados" />
           </Col>
           <Col xs={12} md={6} className="margin-col fade-in-right text-center">
-            <Image src={map} className="img-fluid home-map" alt="Mapa de cobertura" />
+            <Image src={map.src} className="img-fluid home-map" alt="Mapa de cobertura" />
           </Col>
         </Row>
       </Container>

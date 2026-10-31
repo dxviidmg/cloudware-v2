@@ -1,6 +1,6 @@
 /* ===== SECTIONS ===== */
 #home, #about-us, #packages, #contact-us {
-  background-image: url('./assets/images/Background.jpg');
+  background-image: url('/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

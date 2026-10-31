@@ -1,3 +1,5 @@
+"use client";
+
 import Card from "react-bootstrap/Card";
 import { BsSpeedometer2, BsStarFill } from "react-icons/bs";
 import { WHATSAPP_NUMBER } from "../../../data/constants";

@@ -1,3 +1,5 @@
+"use client";
+
 import { Title } from "../../common/title/Title";
 import { Row, Col, Container } from "react-bootstrap";
 import { ImageGallery } from "../../common/gallery/ImageGallery";
@@ -48,7 +50,7 @@ export const AboutUs = () => {
             </div>
           </Col>
           <Col lg={7} className="margin-col fade-in-right">
-            <ImageGallery images={[img1, img2, img3]} />
+            <ImageGallery images={[img1.src, img2.src, img3.src]} />
           </Col>
         </Row>
       </Container>

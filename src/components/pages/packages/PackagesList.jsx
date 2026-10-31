@@ -1,3 +1,5 @@
+"use client";
+
 import { Title } from "../../common/title/Title";
 import { Row, Col, Container } from "react-bootstrap";
 import { PackagesCard } from "./PackageCard";

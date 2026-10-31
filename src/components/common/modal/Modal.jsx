@@ -1,3 +1,5 @@
+"use client";
+
 import { Modal, Button } from 'react-bootstrap';
 
 export const MyModal = ({ showModal, setShowModal, message }) => {
