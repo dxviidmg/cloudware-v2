@@ -1,7 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
-import { BsWhatsapp, BsWifi, BsShieldLock, BsHeadset, BsLightningCharge } from "react-icons/bs";
+import { BsWhatsapp, BsWifi, BsShieldLock, BsHeadset } from "react-icons/bs";
 import { Reveal } from "../../common/reveal/Reveal";
 import { CountUp } from "../../common/count-up/CountUp";
+import hero from "../../../assets/images/hero.webp";
 import { Title } from "../../common/title/Title";
 import { whatsappLink } from "../../../data/constants";
 import "./Home.css";
@@ -34,6 +36,9 @@ const services = [
 export const Home = () => (
   <>
     <section className="hero">
+      <div className="hero-img" aria-hidden="true">
+        <Image src={hero} alt="" fill priority sizes="(max-width: 991px) 100vw, 65vw" />
+      </div>
       <div className="container-cw hero-grid">
         <div>
           <span className="eyebrow rise">Conectando tu mundo</span>
@@ -62,18 +67,6 @@ export const Home = () => (
           </div>
         </div>
 
-        <div className="hero-card-wrap">
-        <div className="hero-card card-cw">
-          <span className="icon-chip">
-            <BsLightningCharge aria-hidden="true" />
-          </span>
-          <p className="hero-card-label">Fibra óptica desde</p>
-          <p className="hero-card-price tabular">
-            $250<span>/mes</span>
-          </p>
-          <p className="hero-card-meta">Hasta 600 Mbps · Instalación y soporte local</p>
-        </div>
-        </div>
       </div>
     </section>
 
