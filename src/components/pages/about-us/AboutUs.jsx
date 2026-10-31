@@ -5,7 +5,6 @@ import { Title } from "../../common/title/Title";
 import img1 from "../../../assets/images/slices/1.jpeg";
 import img2 from "../../../assets/images/slices/2.jpeg";
 import img3 from "../../../assets/images/slices/3.jpeg";
-import map from "../../../assets/images/Map.png";
 import "./AboutUs.css";
 
 const features = [
@@ -20,6 +19,12 @@ const coverage = [
   { value: "40+", label: "comunidades" },
   { value: "2", label: "tecnologías" },
   { value: "100%", label: "red propia" },
+];
+
+const legend = [
+  { tone: "fiber", title: "Fibra disponible", desc: "Fibra óptica directa a tu hogar" },
+  { tone: "antenna", title: "Antena disponible", desc: "Internet inalámbrico por antena" },
+  { tone: "soon", title: "Próxima cobertura de fibra", desc: "Zonas donde estamos ampliando la red" },
 ];
 
 const gallery = [
@@ -90,9 +95,17 @@ export const AboutUs = () => (
             </Reveal>
           ))}
         </dl>
-        <Reveal delay={100}>
-        <Image src={map} alt="Mapa de cobertura de CloudWare en la región de Actopan" className="coverage-map" sizes="(max-width: 991px) 100vw, 560px" />
-        </Reveal>
+        <ul className="coverage-legend">
+          {legend.map(({ tone, title, desc }, i) => (
+            <Reveal as="li" className="card-cw legend-item" key={title} delay={i * 80}>
+              <span className={`legend-dot legend-${tone}`} aria-hidden="true" />
+              <div>
+                <strong>{title}</strong>
+                <span>{desc}</span>
+              </div>
+            </Reveal>
+          ))}
+        </ul>
       </div>
     </section>
   </>
