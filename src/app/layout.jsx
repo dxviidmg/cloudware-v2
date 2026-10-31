@@ -126,7 +126,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <a href="#contenido" className="skip-link">Saltar al contenido</a>
         <MyNavbar />
         <main id="contenido">{children}</main>
