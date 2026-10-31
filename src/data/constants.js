@@ -3,3 +3,7 @@ export const WHATSAPP_DISPLAY = "772-129-29-69";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const EMAIL = "contacto@cloudwaremx.com";
 export const ADDRESS = "C. Efrén Rebolledo 24, Actopan, Hgo.";
+export const HOURS = "Lun-Vie 9-18h, Sáb 9:30-15:30h";
+
+export const whatsappLink = (message) =>
+  `${WHATSAPP_URL}?text=${encodeURIComponent(message)}`;

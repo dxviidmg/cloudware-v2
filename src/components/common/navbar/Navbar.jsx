@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import logo from "../../../assets/images/logo.png";
 
 import "./Navbar.css";
@@ -29,15 +30,10 @@ export function MyNavbar() {
   return (
     <Navbar expand="lg">
       <Container>
-        <Navbar.Brand as={Link} href="/">
-          <img
-            src={logo.src}
-            height="100"
-            className="d-inline-block align-top"
-            alt="CloudWare logo"
-          />
+        <Navbar.Brand as={Link} href="/" className="brand-chip">
+          <Image src={logo} height={52} alt="CloudWare" priority style={{ width: "auto" }} />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Abrir menú" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {links.map(({ href, label }) => (
@@ -53,6 +49,9 @@ export function MyNavbar() {
               ))}
             </NavDropdown>
           </Nav>
+          <Link href="/paquetes" className="btn-cw btn-cw-primary navbar-cta">
+            Ver paquetes
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>

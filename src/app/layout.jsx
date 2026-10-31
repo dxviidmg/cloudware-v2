@@ -1,9 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Poppins } from "next/font/google";
 import "./globals.css";
-import "./App.css";
 import { MyNavbar } from "../components/common/navbar/Navbar";
 import { Footer } from "../components/common/footer/Footer";
 import { WhatsAppButton } from "../components/common/whatsapp/WhatsAppButton";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-poppins",
+});
 
 const SITE_URL = "https://cloudwaremx.com";
 const TITLE = "CloudWare MX | Internet en Actopan, Hidalgo - Fibra Óptica e Inalámbrico";
@@ -38,7 +45,7 @@ export const metadata = {
   other: { "geo.region": "MX-HID", "geo.placename": "Actopan, Hidalgo" },
 };
 
-export const viewport = { themeColor: "#6C3FA0" };
+export const viewport = { themeColor: "#14101f" };
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -87,20 +94,20 @@ const jsonLd = {
     "itemListElement": [
       {
         "@type": "Offer",
-        "name": "Inalámbrico Básico - 5 Mbps",
+        "name": "Inalámbrico Básico - 10 Mbps",
         "price": "250",
         "priceCurrency": "MXN"
       },
       {
         "@type": "Offer",
-        "name": "Fibra Óptica Básico - 30 Mbps",
-        "price": "300",
+        "name": "Fibra Óptica Básico - 40 Mbps",
+        "price": "250",
         "priceCurrency": "MXN"
       },
       {
         "@type": "Offer",
-        "name": "Fibra Óptica Ultra - 180 Mbps",
-        "price": "1000",
+        "name": "Fibra Óptica Ultra - 600 Mbps",
+        "price": "700",
         "priceCurrency": "MXN"
       }
     ]
@@ -109,22 +116,17 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es">
+    <html lang="es" className={poppins.variable}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body>
+        <a href="#contenido" className="skip-link">Saltar al contenido</a>
         <MyNavbar />
-        {children}
+        <main id="contenido">{children}</main>
         <Footer />
         <WhatsAppButton />
       </body>
