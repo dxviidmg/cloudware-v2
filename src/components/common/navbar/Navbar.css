@@ -73,10 +73,3 @@
     margin: var(--space-3) var(--space-1) var(--space-2);
   }
 }
-
-.brand-chip {
-  display: inline-flex;
-  padding: var(--space-1) var(--space-3);
-  background: var(--text);
-  border-radius: var(--radius-sm);
-}

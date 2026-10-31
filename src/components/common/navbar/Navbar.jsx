@@ -30,7 +30,7 @@ export function MyNavbar() {
   return (
     <Navbar expand="lg">
       <Container>
-        <Navbar.Brand as={Link} href="/" className="brand-chip">
+        <Navbar.Brand as={Link} href="/">
           <Image src={logo} height={52} alt="CloudWare" priority style={{ width: "auto" }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Abrir menú" />
