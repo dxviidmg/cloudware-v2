@@ -1,7 +1,7 @@
-import { BsGeoAlt, BsWhatsapp, BsEnvelope, BsClock } from "react-icons/bs";
+import { BsGeoAlt, BsWhatsapp, BsEnvelope, BsClock, BsChatDots, BsSignTurnRight } from "react-icons/bs";
 import { Reveal } from "../../common/reveal/Reveal";
 import { Title } from "../../common/title/Title";
-import { WHATSAPP_DISPLAY, WHATSAPP_URL, EMAIL, ADDRESS, HOURS } from "../../../data/constants";
+import { WHATSAPP_DISPLAY, WHATSAPP_URL, EMAIL, ADDRESS, HOURS, MAPS_URL } from "../../../data/constants";
 import { Map } from "./Map";
 import { SendEmail } from "./SendEmail";
 import "./ContactUs.css";
@@ -46,14 +46,39 @@ export const ContactUs = () => (
       </ul>
 
       <div className="contact-grid">
-        <Reveal>
-          <h2 className="contact-title">Envíanos un mensaje</h2>
+        <Reveal className="card-cw contact-card">
+          <header className="contact-card-head">
+            <span className="icon-chip">
+              <BsChatDots aria-hidden="true" />
+            </span>
+            <div>
+              <h3>Envíanos un mensaje</h3>
+              <p>Te respondemos en menos de 24 horas.</p>
+            </div>
+          </header>
           <SendEmail />
         </Reveal>
-        <Reveal delay={120}>
-          <h2 className="contact-title">Encuéntranos</h2>
+
+        <Reveal className="card-cw contact-card" delay={120}>
+          <header className="contact-card-head">
+            <span className="icon-chip">
+              <BsGeoAlt aria-hidden="true" />
+            </span>
+            <div>
+              <h3>Encuéntranos</h3>
+              <p>{ADDRESS}</p>
+            </div>
+          </header>
           <div className="map-wrapper">
             <Map />
+          </div>
+          <div className="map-actions">
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="btn-cw btn-cw-primary">
+              <BsSignTurnRight aria-hidden="true" /> Cómo llegar
+            </a>
+            <span>
+              <BsClock aria-hidden="true" /> {HOURS}
+            </span>
           </div>
         </Reveal>
       </div>

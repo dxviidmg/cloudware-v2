@@ -47,7 +47,7 @@ export const SendEmail = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card-cw contact-form">
+    <form onSubmit={handleSubmit} className="contact-form">
       <div className="field-row">
         <div className="field">
           <label htmlFor="name">Nombre completo</label>
@@ -59,14 +59,15 @@ export const SendEmail = () => {
         </div>
       </div>
 
-      <div className="field">
-        <label htmlFor="email">Correo electrónico</label>
-        <input id="email" name="email" type="email" className="form-control" autoComplete="email" required />
-      </div>
-
-      <div className="field">
-        <label htmlFor="address">Domicilio</label>
-        <input id="address" name="address" type="text" placeholder="Tu domicilio" className="form-control" autoComplete="street-address" required />
+      <div className="field-row">
+        <div className="field">
+          <label htmlFor="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" placeholder="tucorreo@ejemplo.com" className="form-control" autoComplete="email" required />
+        </div>
+        <div className="field">
+          <label htmlFor="address">Domicilio</label>
+          <input id="address" name="address" type="text" placeholder="Calle, número y colonia" className="form-control" autoComplete="street-address" required />
+        </div>
       </div>
 
       <div className="field">

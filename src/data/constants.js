@@ -8,3 +8,5 @@ export const HOURS = "Lun-Vie 9-18h, Sáb 9:30-15:30h";
 
 export const whatsappLink = (message) =>
   `${WHATSAPP_URL}?text=${encodeURIComponent(message)}`;
+
+export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
