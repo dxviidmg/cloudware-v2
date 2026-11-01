@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
     <html lang="es" className={poppins.variable}>
       <head>
         <noscript>
-          <style>{".reveal{opacity:1;transform:none}"}</style>
+          <style>{".reveal{opacity:1!important;transform:none!important}"}</style>
         </noscript>
         <script
           type="application/ld+json"

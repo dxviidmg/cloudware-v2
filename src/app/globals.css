@@ -251,6 +251,11 @@ main {
   transition: opacity 600ms var(--ease), transform 600ms var(--ease);
 }
 
+.reveal-left { transform: translateX(-32px); }
+.reveal-right { transform: translateX(32px); }
+.reveal-zoom { transform: scale(0.94); }
+.reveal-fade { transform: none; }
+
 .reveal-in {
   opacity: 1;
   transform: none;
@@ -302,4 +307,10 @@ main {
 /* ===== SINGLE-PAGE ANCHORS ===== */
 main section[id] {
   scroll-margin-top: 72px;
+}
+
+/* hero image: slow drift, transform only */
+@keyframes drift {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
 }

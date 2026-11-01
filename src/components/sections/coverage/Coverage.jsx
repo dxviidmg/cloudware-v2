@@ -37,7 +37,7 @@ export const Coverage = () => {
             subtitle="Operamos desde Actopan con tecnología de fibra óptica propia y soluciones inalámbricas para llegar más lejos."
           />
 
-          <div className="cov-types" role="group" aria-label="Tipo de cobertura">
+          <Reveal className="cov-types" role="group" aria-label="Tipo de cobertura" delay={100}>
             {technologies.map(({ id, icon: Icon, label, title, desc }) => (
               <button
                 key={id}
@@ -57,9 +57,9 @@ export const Coverage = () => {
                 {mode === id && <BsCheckCircleFill className="cov-check" aria-hidden="true" />}
               </button>
             ))}
-          </div>
+          </Reveal>
 
-          <Reveal className="card-cw cov-numbers">
+          <Reveal className="card-cw cov-numbers" delay={200}>
             <h2>Cobertura en números</h2>
             <dl>
               {numbers.map(({ icon: Icon, value, label, note }) => (
@@ -75,7 +75,7 @@ export const Coverage = () => {
         </div>
 
         <div>
-          <div className="card-cw cov-map-card">
+          <Reveal className="card-cw cov-map-card" variant="right" delay={150}>
             <div className="cov-map-header">
               <span className="icon-chip">
                 <BsWifi aria-hidden="true" />
@@ -97,7 +97,7 @@ export const Coverage = () => {
               )}
               <span><i className="leg-dot leg-soon" aria-hidden="true" /> Próxima cobertura óptica</span>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </Section>

@@ -28,7 +28,7 @@ export const Contact = () => (
       </Reveal>
 
       <div className="contact-grid">
-        <Reveal className="card-cw contact-card">
+        <Reveal className="card-cw contact-card" variant="left">
           <header className="contact-card-head">
             <span className="icon-chip">
               <BsChatDots aria-hidden="true" />
@@ -41,7 +41,7 @@ export const Contact = () => (
           <SendEmail />
         </Reveal>
 
-        <Reveal className="card-cw contact-card" delay={120}>
+        <Reveal className="card-cw contact-card" variant="right" delay={120}>
           <header className="contact-card-head">
             <span className="icon-chip">
               <BsGeoAlt aria-hidden="true" />

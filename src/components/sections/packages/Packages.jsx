@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { Reveal } from "@/components/ui/reveal/Reveal";
 import { Section } from "@/components/ui/section/Section";
 import { Title } from "@/components/ui/title/Title";
 import { PackageCard } from "./PackageCard";
@@ -33,7 +34,7 @@ export const Packages = () => {
           subtitle="Elige el plan que mejor se adapte a ti. Sin contratos forzosos, sin letras chiquitas."
         />
 
-        <div className="tabs" role="tablist" aria-label="Tipo de servicio">
+        <Reveal className="tabs" role="tablist" aria-label="Tipo de servicio" variant="zoom" delay={100}>
           {packageGroups.map((g, i) => (
             <button
               key={g.id}
@@ -50,9 +51,9 @@ export const Packages = () => {
               {g.label}
             </button>
           ))}
-        </div>
+        </Reveal>
 
-        <div key={group.id} className="rise" role="tabpanel" id={`panel-${group.id}`} aria-labelledby={`tab-${group.id}`} tabIndex={0}>
+        <div key={group.id} role="tabpanel" id={`panel-${group.id}`} aria-labelledby={`tab-${group.id}`} tabIndex={0}>
           <p className="packages-description">{group.description}</p>
           <div className="packages-grid">
             {group.plans.map((plan, i) => (

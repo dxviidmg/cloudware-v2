@@ -85,14 +85,12 @@ export const Home = () => (
 
     <Section id="servicios" className="section-alt">
       <div className="container-cw">
-        <Reveal>
-          <Title
-            id="servicios-titulo"
-            eyebrow="Servicios"
-            title="Todo lo que necesitas conectado"
-            subtitle="Soluciones de conectividad para cada tipo de usuario, desde el hogar hasta la empresa."
-          />
-        </Reveal>
+        <Title
+          id="servicios-titulo"
+          eyebrow="Servicios"
+          title="Todo lo que necesitas conectado"
+          subtitle="Soluciones de conectividad para cada tipo de usuario, desde el hogar hasta la empresa."
+        />
         <div className="grid-auto">
           {services.map(({ icon: Icon, title, desc }, i) => (
             <Reveal as="article" className="card-cw service" key={title} delay={i * 100}>

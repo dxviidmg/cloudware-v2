@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/ui/reveal/Reveal";
 import { BsSpeedometer2, BsStarFill } from "react-icons/bs";
 import { whatsappLink } from "@/data/constants";
 
@@ -6,9 +7,11 @@ export function PackageCard({ plan, groupLabel, index = 0 }) {
   const message = `Hola, me interesa el paquete ${name} de ${groupLabel} (${speed} Mbps)`;
 
   return (
-    <article
-      className={`card-cw package-card rise ${popular ? "package-popular" : ""}`}
-      style={{ animationDelay: `${index * 70}ms` }}
+    <Reveal
+      as="article"
+      variant="zoom"
+      delay={index * 80}
+      className={`card-cw package-card ${popular ? "package-popular" : ""}`}
     >
       {popular && (
         <span className="popular-badge">
@@ -33,6 +36,6 @@ export function PackageCard({ plan, groupLabel, index = 0 }) {
       >
         ¡Lo quiero!
       </a>
-    </article>
+    </Reveal>
   );
 }
