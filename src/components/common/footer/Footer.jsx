@@ -40,10 +40,10 @@ export const Footer = () => (
       <nav aria-label="Pie de página">
         <h2>Navegación</h2>
         <ul>
-          <li><Link href="/nosotros">Nosotros</Link></li>
-          <li><Link href="/cobertura">Cobertura</Link></li>
-          <li><Link href="/paquetes">Paquetes</Link></li>
-          <li><Link href="/contacto">Contacto</Link></li>
+          <li><Link href="/#nosotros">Nosotros</Link></li>
+          <li><Link href="/#cobertura">Cobertura</Link></li>
+          <li><Link href="/#paquetes">Paquetes</Link></li>
+          <li><Link href="/#contacto">Contacto</Link></li>
         </ul>
       </nav>
     </div>
