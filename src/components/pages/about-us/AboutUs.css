@@ -18,7 +18,7 @@
 .about-features {
   display: grid;
   gap: var(--space-3);
-  margin: var(--space-6) 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -38,27 +38,4 @@
 .about-feature span:not(.icon-chip) {
   font-size: 0.9rem;
   color: var(--text-muted);
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
-}
-
-.gallery-img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-soft);
-}
-
-.gallery-wide {
-  grid-column: 1 / -1;
-}
-
-.gallery-wide .gallery-img {
-  aspect-ratio: 16 / 8;
 }
