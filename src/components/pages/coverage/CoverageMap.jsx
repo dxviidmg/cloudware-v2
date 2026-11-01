@@ -2,16 +2,17 @@
 
 import { useEffect, useRef, useState } from "react";
 import coverage from "../../../data/coverage.json";
+import hidalgo from "../../../data/hidalgo.json";
 
 const PAD = 28;
-const LONS = coverage.state.map((p) => p[0]);
-const LATS = coverage.state.map((p) => p[1]);
+const POINTS = hidalgo.flatMap((m) => m.rings.flat());
 const BOUNDS = {
-  minLon: Math.min(...LONS),
-  maxLon: Math.max(...LONS),
-  minLat: Math.min(...LATS),
-  maxLat: Math.max(...LATS),
+  minLon: Math.min(...POINTS.map((p) => p[0])),
+  maxLon: Math.max(...POINTS.map((p) => p[0])),
+  minLat: Math.min(...POINTS.map((p) => p[1])),
+  maxLat: Math.max(...POINTS.map((p) => p[1])),
 };
+const CENTER = Object.fromEntries(hidalgo.map((m) => [m.name, m.c]));
 // a degree of longitude is shorter than one of latitude: cos(lat) keeps real proportions
 const LON_K = Math.cos((((BOUNDS.minLat + BOUNDS.maxLat) / 2) * Math.PI) / 180);
 const SPAN_X = (BOUNDS.maxLon - BOUNDS.minLon) * LON_K;
@@ -97,17 +98,23 @@ export function CoverageMap({ mode }) {
       const muns = coverage[current];
       ctx.clearRect(0, 0, w, h);
 
-      ctx.beginPath();
-      coverage.state.forEach(([lon, lat], i) => {
-        const [x, y] = project(lon, lat, w, h);
-        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      const covered = new Set(muns.map((m) => m.name));
+      hidalgo.forEach((m) => {
+        const on = covered.has(m.name);
+        ctx.beginPath();
+        m.rings.forEach((ring) => {
+          ring.forEach(([lon, lat], i) => {
+            const [x, y] = project(lon, lat, w, h);
+            i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+          });
+          ctx.closePath();
+        });
+        ctx.fillStyle = on ? `${color}55` : "rgba(108, 63, 160, 0.22)";
+        ctx.fill();
+        ctx.strokeStyle = on ? color : "rgba(165, 140, 191, 0.45)";
+        ctx.lineWidth = on ? 1.5 : 0.7;
+        ctx.stroke();
       });
-      ctx.closePath();
-      ctx.fillStyle = "rgba(108, 63, 160, 0.28)";
-      ctx.fill();
-      ctx.strokeStyle = "#a58cbf";
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
 
       signals.forEach((s) => {
         if (!reduced) {
@@ -117,8 +124,8 @@ export function CoverageMap({ mode }) {
         const from = muns[s.from % muns.length];
         const to = muns[s.to % muns.length];
         if (!from || !to) return;
-        const [fx, fy] = project(from.cx, from.cy, w, h);
-        const [tx, ty] = project(to.cx, to.cy, w, h);
+        const [fx, fy] = project(...CENTER[from.name], w, h);
+        const [tx, ty] = project(...CENTER[to.name], w, h);
         const x = fx + (tx - fx) * s.t;
         const y = fy + (ty - fy) * s.t;
         const grd = ctx.createRadialGradient(x, y, 0, x, y, s.size * 3);
@@ -135,7 +142,7 @@ export function CoverageMap({ mode }) {
       });
 
       pulse += reduced ? 0 : 0.04;
-      const pts = muns.map((m) => ({ m, p: project(m.cx, m.cy, w, h) }));
+      const pts = muns.map((m) => ({ m, p: project(...CENTER[m.name], w, h) }));
 
       dots = [];
       pts.forEach(({ m, p: [x, y] }) => {
@@ -180,7 +187,7 @@ export function CoverageMap({ mode }) {
       ctx.textAlign = "left";
 
       if (selected?.localidades) {
-        const [sx, sy] = project(selected.cx, selected.cy, w, h);
+        const [sx, sy] = project(...CENTER[selected.name], w, h);
         const locs = selected.localidades;
         let cols = locs.length > 10 ? 2 : 1;
         let popW = cols === 2 ? 240 : 175;
