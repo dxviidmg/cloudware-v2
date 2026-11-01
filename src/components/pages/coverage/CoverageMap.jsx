@@ -17,7 +17,14 @@ const LON_K = Math.cos((((BOUNDS.minLat + BOUNDS.maxLat) / 2) * Math.PI) / 180);
 const SPAN_X = (BOUNDS.maxLon - BOUNDS.minLon) * LON_K;
 const SPAN_Y = BOUNDS.maxLat - BOUNDS.minLat;
 const COLORS = { fibra: "#c4a8ff", antena: "#f5a623" };
-const MIN_DIST = 34;
+// label position relative to the real municipio location (px); keeps pins at true scale
+const LABELS = {
+  "Santiago de Anaya": [-28, -34],
+  "San Salvador": [-70, 6],
+  Actopan: [30, -40],
+  "El Arenal": [62, 12],
+  "San Agustín Tlaxiaca": [0, 36],
+};
 const FONT = "Poppins, sans-serif";
 
 function project(lon, lat, w, h) {
@@ -129,58 +136,46 @@ export function CoverageMap({ mode }) {
 
       pulse += reduced ? 0 : 0.04;
       const pts = muns.map((m) => ({ m, p: project(m.cx, m.cy, w, h) }));
-      for (let iter = 0; iter < 6; iter++) {
-        for (let a = 0; a < pts.length; a++) {
-          for (let b = a + 1; b < pts.length; b++) {
-            const dx = pts[b].p[0] - pts[a].p[0];
-            const dy = pts[b].p[1] - pts[a].p[1];
-            const d = Math.hypot(dx, dy);
-            if (d > 0 && d < MIN_DIST) {
-              const push = (MIN_DIST - d) / 2;
-              pts[a].p[0] -= (dx / d) * push;
-              pts[a].p[1] -= (dy / d) * push;
-              pts[b].p[0] += (dx / d) * push;
-              pts[b].p[1] += (dy / d) * push;
-            }
-          }
-        }
-      }
 
       dots = [];
       pts.forEach(({ m, p: [x, y] }) => {
         const isSel = selected && selected.name === m.name;
         for (let r = 0; r < 3; r++) {
-          const pr = (isSel ? 26 : 16) + r * 14 + Math.sin(pulse - r * 0.8) * 3;
+          const pr = (isSel ? 14 : 9) + r * 7 + Math.sin(pulse - r * 0.8) * 2;
           ctx.beginPath();
           ctx.arc(x, y, pr, 0, Math.PI * 2);
           ctx.fillStyle = `${color}${Math.round((0.15 - r * 0.04) * (isSel ? 1.5 : 1) * 255).toString(16).padStart(2, "0")}`;
           ctx.fill();
         }
+        const [ldx, ldy] = LABELS[m.name] ?? [0, -30];
+        const lx = x + ldx;
+        const ly = y + ldy;
         ctx.beginPath();
-        ctx.arc(x, y, isSel ? 11 : 8, 0, Math.PI * 2);
+        ctx.moveTo(x, y);
+        ctx.lineTo(lx, ly - 4);
+        ctx.strokeStyle = "rgba(255,255,255,0.35)";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(x, y, isSel ? 6 : 4.5, 0, Math.PI * 2);
         ctx.fillStyle = color;
         ctx.fill();
         ctx.strokeStyle = "#14101f";
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 1.5;
         ctx.stroke();
-        ctx.beginPath();
-        ctx.arc(x, y, isSel ? 4.5 : 3, 0, Math.PI * 2);
-        ctx.fillStyle = "#14101f";
-        ctx.fill();
 
         ctx.font = `${isSel ? "bold " : ""}11px ${FONT}`;
         const lw = ctx.measureText(m.name).width;
-        const ly = y - (m.labelOffset || 22);
         ctx.fillStyle = isSel ? color : "rgba(20, 16, 31, 0.92)";
-        pill(ctx, x - lw / 2 - 5, ly - 12, lw + 10, 17, 4);
+        pill(ctx, lx - lw / 2 - 5, ly - 12, lw + 10, 17, 4);
         ctx.fill();
         ctx.strokeStyle = "rgba(255,255,255,0.18)";
         ctx.lineWidth = 1;
         ctx.stroke();
         ctx.fillStyle = isSel ? "#14101f" : "#f4f1fb";
         ctx.textAlign = "center";
-        ctx.fillText(m.name, x, ly);
-        dots.push({ x, y, mun: m, box: { x: x - lw / 2 - 5, y: ly - 12, w: lw + 10, h: 17 } });
+        ctx.fillText(m.name, lx, ly);
+        dots.push({ x, y, mun: m, box: { x: lx - lw / 2 - 5, y: ly - 12, w: lw + 10, h: 17 } });
       });
       ctx.textAlign = "left";
 
@@ -245,7 +240,7 @@ export function CoverageMap({ mode }) {
       let found = null;
       dots.forEach((d) => {
         const b = d.box;
-        if (Math.hypot(mx - d.x, my - d.y) < 22 || (mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h)) found = d.mun;
+        if (Math.hypot(mx - d.x, my - d.y) < 14 || (mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h)) found = d.mun;
       });
       return found;
     };
