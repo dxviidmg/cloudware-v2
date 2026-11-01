@@ -117,21 +117,3 @@
 .service p {
   margin: 0;
 }
-
-.cta-band {
-  padding: var(--space-7) var(--space-5);
-  text-align: center;
-  background: linear-gradient(135deg, var(--primary-dark), var(--surface));
-}
-
-.cta-band h2 {
-  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
-}
-
-.cta-band p {
-  margin-block: var(--space-3) var(--space-5);
-}
-
-.cta-band .hero-actions {
-  justify-content: center;
-}

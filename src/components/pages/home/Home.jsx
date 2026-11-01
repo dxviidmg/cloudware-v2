@@ -50,7 +50,7 @@ export const Home = () => (
             nuestra experiencia.
           </p>
           <div className="hero-actions rise" style={{ animationDelay: "240ms" }}>
-            <Link href="/paquetes" className="btn-cw btn-cw-primary">
+            <Link href="#paquetes" className="btn-cw btn-cw-primary">
               Ver paquetes
             </Link>
             <a
@@ -82,10 +82,11 @@ export const Home = () => (
       </div>
     </section>
 
-    <section className="section section-alt">
+    <section className="section section-alt" id="servicios" aria-labelledby="servicios-titulo">
       <div className="container-cw">
         <Reveal>
           <Title
+            id="servicios-titulo"
             eyebrow="Servicios"
             title="Todo lo que necesitas conectado"
             subtitle="Soluciones de conectividad para cada tipo de usuario, desde el hogar hasta la empresa."
@@ -102,23 +103,6 @@ export const Home = () => (
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
-
-    <section className="section">
-      <div className="container-cw">
-        <Reveal className="cta-band card-cw">
-          <h2>¿Listo para contratar?</h2>
-          <p>Elige tu paquete o escríbenos y te ayudamos a escoger el ideal.</p>
-          <div className="hero-actions">
-            <Link href="/paquetes" className="btn-cw btn-cw-primary">
-              Ver paquetes
-            </Link>
-            <Link href="/contacto" className="btn-cw btn-cw-ghost">
-              Contáctanos
-            </Link>
-          </div>
-        </Reveal>
       </div>
     </section>
   </>
