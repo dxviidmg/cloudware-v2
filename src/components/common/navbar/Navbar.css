@@ -12,6 +12,7 @@
   min-height: 44px;
   display: flex;
   align-items: center;
+  white-space: nowrap;
   margin-inline: var(--space-1);
   padding: var(--space-2) var(--space-4) !important;
   font-weight: 500;
@@ -64,11 +65,12 @@
 }
 
 .navbar-cta {
+  white-space: nowrap;
   min-height: 44px;
   padding: var(--space-2) var(--space-5);
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   .navbar-cta {
     margin: var(--space-3) var(--space-1) var(--space-2);
   }

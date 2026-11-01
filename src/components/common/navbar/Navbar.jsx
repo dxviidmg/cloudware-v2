@@ -48,7 +48,7 @@ export function MyNavbar() {
   }, []);
 
   return (
-    <Navbar expand="lg" expanded={expanded} onToggle={setExpanded}>
+    <Navbar expand="xl" expanded={expanded} onToggle={setExpanded}>
       <Container>
         <Navbar.Brand as={Link} href="/">
           <Image src={logo} height={48} alt="CloudWare MX, cada segundo cuenta" priority style={{ width: "auto" }} />
