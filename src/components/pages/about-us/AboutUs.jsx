@@ -1,18 +1,10 @@
-import { BsWifi, BsShieldCheck, BsPeople } from "react-icons/bs";
-import { Reveal } from "../../common/reveal/Reveal";
 import { Title } from "../../common/title/Title";
 import "./AboutUs.css";
-
-const features = [
-  { icon: BsWifi, title: "Conexión estable", desc: "Internet de alta velocidad sin interrupciones" },
-  { icon: BsShieldCheck, title: "Servicio confiable", desc: "Soporte técnico de lunes a sábado" },
-  { icon: BsPeople, title: "Trato cercano", desc: "Empresa local que entiende tus necesidades" },
-];
 
 export const AboutUs = () => (
   <>
     <section className="section" id="nosotros" aria-labelledby="nosotros-titulo">
-      <div className="container-cw about-grid">
+      <div className="container-cw about-text">
         <div>
           <Title id="nosotros-titulo" eyebrow="Quiénes somos" title="Conectamos Hidalgo desde el corazón de Actopan" />
           <p>
@@ -26,21 +18,6 @@ export const AboutUs = () => (
           </p>
         </div>
 
-        <div>
-          <ul className="about-features">
-            {features.map(({ icon: Icon, title, desc }, i) => (
-              <Reveal as="li" className="card-cw about-feature" key={title} delay={i * 80}>
-                <span className="icon-chip">
-                  <Icon aria-hidden="true" />
-                </span>
-                <div>
-                  <strong>{title}</strong>
-                  <span>{desc}</span>
-                </div>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
       </div>
     </section>
 

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import {
   BsRouter, BsBroadcast, BsCheckCircleFill, BsGeoAlt, BsHouse, BsWifi, BsLightningCharge,
-  BsSpeedometer2, BsShieldCheck, BsPeople,
 } from "react-icons/bs";
 import { Reveal } from "../../common/reveal/Reveal";
 import { Title } from "../../common/title/Title";
@@ -22,11 +21,6 @@ const numbers = [
   { icon: BsLightningCharge, value: "100%", label: "Red propia", note: "Infraestructura de calidad" },
 ];
 
-const benefits = [
-  { icon: BsSpeedometer2, title: "Fibra óptica simétrica", desc: "La misma velocidad de subida y bajada." },
-  { icon: BsShieldCheck, title: "Conexión estable", desc: "Menor latencia, ideal para hogares y negocios." },
-  { icon: BsPeople, title: "Atención local", desc: "Soporte técnico cercano y personalizado." },
-];
 
 export const Coverage = () => {
   const [mode, setMode] = useState("fibra");
@@ -77,16 +71,6 @@ export const Coverage = () => {
               ))}
             </dl>
           </Reveal>
-
-          <Reveal className="card-cw cov-expansion">
-            <span className="icon-chip">
-              <BsBroadcast aria-hidden="true" />
-            </span>
-            <div>
-              <strong>Cobertura en expansión</strong>
-              <p>Seguimos creciendo para llevar internet rápido y confiable a más comunidades de la región.</p>
-            </div>
-          </Reveal>
         </div>
 
         <div>
@@ -96,10 +80,8 @@ export const Coverage = () => {
                 <BsWifi aria-hidden="true" />
               </span>
               <div>
-                <strong>Cobertura en tiempo real</strong>
-                <span>
-                  <i className="live-dot" aria-hidden="true" /> Actualización en tiempo real
-                </span>
+                <strong>Mapa de cobertura</strong>
+                <span>{mode === "fibra" ? "Fibra óptica" : "Internet inalámbrico"} en Hidalgo</span>
               </div>
             </div>
 
@@ -114,20 +96,6 @@ export const Coverage = () => {
               )}
               <span><i className="leg-dot leg-soon" aria-hidden="true" /> Próxima cobertura óptica</span>
             </div>
-          </div>
-
-          <div className="cov-benefits">
-            {benefits.map(({ icon: Icon, title, desc }, i) => (
-              <Reveal className="card-cw cov-benefit" key={title} delay={i * 80}>
-                <span className="icon-chip">
-                  <Icon aria-hidden="true" />
-                </span>
-                <div>
-                  <strong>{title}</strong>
-                  <p>{desc}</p>
-                </div>
-              </Reveal>
-            ))}
           </div>
         </div>
       </div>

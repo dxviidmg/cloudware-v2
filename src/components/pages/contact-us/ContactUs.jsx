@@ -1,17 +1,10 @@
-import { BsGeoAlt, BsWhatsapp, BsEnvelope, BsClock, BsChatDots, BsSignTurnRight } from "react-icons/bs";
+import { BsGeoAlt, BsWhatsapp, BsClock, BsChatDots, BsSignTurnRight } from "react-icons/bs";
 import { Reveal } from "../../common/reveal/Reveal";
 import { Title } from "../../common/title/Title";
-import { WHATSAPP_DISPLAY, WHATSAPP_URL, EMAIL, ADDRESS, HOURS, MAPS_URL } from "../../../data/constants";
+import { WHATSAPP_DISPLAY, WHATSAPP_URL, ADDRESS, HOURS, MAPS_URL } from "../../../data/constants";
 import { Map } from "./Map";
 import { SendEmail } from "./SendEmail";
 import "./ContactUs.css";
-
-const contactInfo = [
-  { icon: BsGeoAlt, label: "Ubicación", value: ADDRESS },
-  { icon: BsWhatsapp, label: "WhatsApp", value: WHATSAPP_DISPLAY },
-  { icon: BsEnvelope, label: "Email", value: EMAIL },
-  { icon: BsClock, label: "Horario", value: HOURS },
-];
 
 export const ContactUs = () => (
   <section className="section" id="contacto" aria-labelledby="contacto-titulo">
@@ -26,24 +19,12 @@ export const ContactUs = () => (
       <Reveal className="card-cw support-note">
         <div>
           <strong>Área técnica siempre disponible</strong>
-          <span>Atendemos por WhatsApp y teléfono.</span>
+          <span>Atendemos por WhatsApp al {WHATSAPP_DISPLAY}.</span>
         </div>
         <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-cw btn-cw-primary">
           <BsWhatsapp aria-hidden="true" /> WhatsApp
         </a>
       </Reveal>
-
-      <ul className="grid-auto contact-info">
-        {contactInfo.map(({ icon: Icon, label, value }, i) => (
-          <Reveal as="li" className="card-cw contact-info-card" key={label} delay={i * 80}>
-            <span className="icon-chip">
-              <Icon aria-hidden="true" />
-            </span>
-            <strong>{label}</strong>
-            <span>{value}</span>
-          </Reveal>
-        ))}
-      </ul>
 
       <div className="contact-grid">
         <Reveal className="card-cw contact-card">
@@ -53,7 +34,7 @@ export const ContactUs = () => (
             </span>
             <div>
               <h3>Envíanos un mensaje</h3>
-              <p>Te respondemos en menos de 24 horas.</p>
+              <p>Déjanos tus datos y elige un paquete.</p>
             </div>
           </header>
           <SendEmail />
