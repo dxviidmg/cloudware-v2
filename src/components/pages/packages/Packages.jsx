@@ -23,10 +23,10 @@ export const Packages = () => {
   const group = packageGroups.find((g) => g.id === active);
 
   return (
-    <section className="section">
+    <section className="section" id="paquetes" aria-labelledby="paquetes-titulo">
       <div className="container-cw">
         <Title
-          as="h1"
+          id="paquetes-titulo"
           eyebrow="Nuestros planes"
           title="Nuestros paquetes"
           subtitle="Elige el plan que mejor se adapte a ti. Sin contratos forzosos, sin letras chiquitas."

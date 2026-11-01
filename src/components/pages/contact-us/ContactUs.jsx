@@ -14,10 +14,10 @@ const contactInfo = [
 ];
 
 export const ContactUs = () => (
-  <section className="section">
+  <section className="section" id="contacto" aria-labelledby="contacto-titulo">
     <div className="container-cw">
       <Title
-        as="h1"
+        id="contacto-titulo"
         eyebrow="Contacto"
         title="Contáctanos"
         subtitle="¿Tienes dudas o quieres contratar? Escríbenos y te respondemos en menos de 24 horas."

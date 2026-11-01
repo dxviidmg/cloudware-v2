@@ -21,10 +21,10 @@ const gallery = [
 
 export const AboutUs = () => (
   <>
-    <section className="section">
+    <section className="section" id="nosotros" aria-labelledby="nosotros-titulo">
       <div className="container-cw about-grid">
         <div>
-          <Title as="h1" eyebrow="Quiénes somos" title="Conectamos Hidalgo desde el corazón de Actopan" />
+          <Title id="nosotros-titulo" eyebrow="Quiénes somos" title="Conectamos Hidalgo desde el corazón de Actopan" />
           <p>
             Somos una empresa Hidalguense que nace del esfuerzo, trabajo y dedicación, en busca de
             satisfacer la necesidad cotidiana de contar con una conexión a internet confiable y de

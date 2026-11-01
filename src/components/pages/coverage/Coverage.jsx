@@ -32,11 +32,11 @@ export const Coverage = () => {
   const [mode, setMode] = useState("fibra");
 
   return (
-    <section className="section">
+    <section className="section" id="cobertura" aria-labelledby="cobertura-titulo">
       <div className="container-cw cov-layout">
         <div>
           <Title
-            as="h1"
+            id="cobertura-titulo"
             eyebrow="Cobertura"
             title="Actopan y alrededores"
             subtitle="Operamos desde Actopan con tecnología de fibra óptica propia y soluciones inalámbricas para llegar más lejos."
