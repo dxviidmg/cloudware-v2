@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import coverage from "../../../data/coverage.json";
-import hidalgo from "../../../data/hidalgo.json";
+import coverage from "@/data/coverage.json";
+import hidalgo from "@/data/hidalgo.json";
 
 const PAD = 28;
 const POINTS = hidalgo.flatMap((m) => m.rings.flat());

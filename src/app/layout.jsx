@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { MyNavbar } from "../components/common/navbar/Navbar";
-import { Footer } from "../components/common/footer/Footer";
-import { WhatsAppButton } from "../components/common/whatsapp/WhatsAppButton";
+import { MyNavbar } from "@/components/layout/navbar/Navbar";
+import { Footer } from "@/components/layout/footer/Footer";
+import { WhatsAppButton } from "@/components/ui/whatsapp/WhatsAppButton";
 
 const poppins = Poppins({
   subsets: ["latin"],

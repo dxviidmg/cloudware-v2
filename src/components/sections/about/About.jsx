@@ -1,7 +1,7 @@
-import { Title } from "../../common/title/Title";
-import "./AboutUs.css";
+import { Title } from "@/components/ui/title/Title";
+import "./About.css";
 
-export const AboutUs = () => (
+export const About = () => (
   <>
     <section className="section" id="nosotros" aria-labelledby="nosotros-titulo">
       <div className="container-cw about-text">

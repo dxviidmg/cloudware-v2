@@ -1,5 +1,5 @@
 import { BsSpeedometer2, BsStarFill } from "react-icons/bs";
-import { whatsappLink } from "../../../data/constants";
+import { whatsappLink } from "@/data/constants";
 
 export function PackageCard({ plan, groupLabel, index = 0 }) {
   const { name, speed, price, popular } = plan;

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../../assets/images/logo.png";
+import logo from "@/assets/images/logo.png";
 import { BsWhatsapp, BsEnvelope, BsClock, BsStickies, BsFacebook } from "react-icons/bs";
-import { WHATSAPP_DISPLAY, EMAIL, HOURS, FACEBOOK_URL } from "../../../data/constants";
+import { WHATSAPP_DISPLAY, EMAIL, HOURS, FACEBOOK_URL } from "@/data/constants";
 import "./Footer.css";
 
 export const Footer = () => (

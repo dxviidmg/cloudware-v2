@@ -1,12 +1,12 @@
 import { BsGeoAlt, BsWhatsapp, BsClock, BsChatDots, BsSignTurnRight } from "react-icons/bs";
-import { Reveal } from "../../common/reveal/Reveal";
-import { Title } from "../../common/title/Title";
-import { WHATSAPP_DISPLAY, WHATSAPP_URL, ADDRESS, HOURS, MAPS_URL } from "../../../data/constants";
+import { Reveal } from "@/components/ui/reveal/Reveal";
+import { Title } from "@/components/ui/title/Title";
+import { WHATSAPP_DISPLAY, WHATSAPP_URL, ADDRESS, HOURS, MAPS_URL } from "@/data/constants";
 import { Map } from "./Map";
 import { SendEmail } from "./SendEmail";
-import "./ContactUs.css";
+import "./Contact.css";
 
-export const ContactUs = () => (
+export const Contact = () => (
   <section className="section" id="contacto" aria-labelledby="contacto-titulo">
     <div className="container-cw">
       <Title

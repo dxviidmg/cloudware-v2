@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BsWhatsapp, BsWifi, BsShieldLock, BsHeadset } from "react-icons/bs";
-import { Reveal } from "../../common/reveal/Reveal";
-import { CountUp } from "../../common/count-up/CountUp";
-import hero from "../../../assets/images/hero.webp";
-import { Title } from "../../common/title/Title";
-import { whatsappLink } from "../../../data/constants";
+import { Reveal } from "@/components/ui/reveal/Reveal";
+import { CountUp } from "@/components/ui/count-up/CountUp";
+import hero from "@/assets/images/hero.webp";
+import { Title } from "@/components/ui/title/Title";
+import { whatsappLink } from "@/data/constants";
 import "./Home.css";
 
 const stats = [

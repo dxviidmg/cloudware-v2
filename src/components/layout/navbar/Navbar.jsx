@@ -7,7 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import logo from "../../../assets/images/logo.png";
+import logo from "@/assets/images/logo.png";
 
 import "./Navbar.css";
 

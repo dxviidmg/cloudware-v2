@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Title } from "../../common/title/Title";
+import { Title } from "@/components/ui/title/Title";
 import { PackageCard } from "./PackageCard";
-import { packageGroups } from "../../../data/packages";
+import { packageGroups } from "@/data/packages";
 import "./Packages.css";
 
 export const Packages = () => {

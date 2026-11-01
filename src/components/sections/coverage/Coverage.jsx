@@ -4,8 +4,8 @@ import { useState } from "react";
 import {
   BsRouter, BsBroadcast, BsCheckCircleFill, BsGeoAlt, BsHouse, BsWifi, BsLightningCharge,
 } from "react-icons/bs";
-import { Reveal } from "../../common/reveal/Reveal";
-import { Title } from "../../common/title/Title";
+import { Reveal } from "@/components/ui/reveal/Reveal";
+import { Title } from "@/components/ui/title/Title";
 import { CoverageMap } from "./CoverageMap";
 import "./Coverage.css";
 

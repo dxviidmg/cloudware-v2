@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import emailjs from "emailjs-com";
-import { packageGroups } from "../../../data/packages";
+import { packageGroups } from "@/data/packages";
 import "./SendEmail.css";
 
 const NOT_SURE = "No estoy seguro, necesito asesoría";
