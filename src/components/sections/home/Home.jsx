@@ -4,6 +4,7 @@ import { BsWhatsapp, BsWifi, BsShieldLock, BsHeadset } from "react-icons/bs";
 import { Reveal } from "@/components/ui/reveal/Reveal";
 import { CountUp } from "@/components/ui/count-up/CountUp";
 import hero from "@/assets/images/hero.webp";
+import { Section } from "@/components/ui/section/Section";
 import { Title } from "@/components/ui/title/Title";
 import { whatsappLink } from "@/data/constants";
 import "./Home.css";
@@ -82,7 +83,7 @@ export const Home = () => (
       </div>
     </section>
 
-    <section className="section section-alt" id="servicios" aria-labelledby="servicios-titulo">
+    <Section id="servicios" className="section-alt">
       <div className="container-cw">
         <Reveal>
           <Title
@@ -104,6 +105,6 @@ export const Home = () => (
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   </>
 );

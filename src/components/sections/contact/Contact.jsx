@@ -1,5 +1,6 @@
 import { BsGeoAlt, BsWhatsapp, BsClock, BsChatDots, BsSignTurnRight } from "react-icons/bs";
 import { Reveal } from "@/components/ui/reveal/Reveal";
+import { Section } from "@/components/ui/section/Section";
 import { Title } from "@/components/ui/title/Title";
 import { WHATSAPP_DISPLAY, WHATSAPP_URL, ADDRESS, HOURS, MAPS_URL } from "@/data/constants";
 import { Map } from "./Map";
@@ -7,7 +8,7 @@ import { SendEmail } from "./SendEmail";
 import "./Contact.css";
 
 export const Contact = () => (
-  <section className="section" id="contacto" aria-labelledby="contacto-titulo">
+  <Section id="contacto">
     <div className="container-cw">
       <Title
         id="contacto-titulo"
@@ -64,5 +65,5 @@ export const Contact = () => (
         </Reveal>
       </div>
     </div>
-  </section>
+  </Section>
 );

@@ -5,6 +5,7 @@ import {
   BsRouter, BsBroadcast, BsCheckCircleFill, BsGeoAlt, BsHouse, BsWifi, BsLightningCharge,
 } from "react-icons/bs";
 import { Reveal } from "@/components/ui/reveal/Reveal";
+import { Section } from "@/components/ui/section/Section";
 import { Title } from "@/components/ui/title/Title";
 import { CoverageMap } from "./CoverageMap";
 import "./Coverage.css";
@@ -26,7 +27,7 @@ export const Coverage = () => {
   const [mode, setMode] = useState("fibra");
 
   return (
-    <section className="section" id="cobertura" aria-labelledby="cobertura-titulo">
+    <Section id="cobertura">
       <div className="container-cw cov-layout">
         <div>
           <Title
@@ -99,6 +100,6 @@ export const Coverage = () => {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };

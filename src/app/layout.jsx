@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/data/constants";
+import { jsonLd } from "@/lib/jsonld";
 import { MyNavbar } from "@/components/layout/navbar/Navbar";
 import { Footer } from "@/components/layout/footer/Footer";
 import { WhatsAppButton } from "@/components/ui/whatsapp/WhatsAppButton";
@@ -12,7 +14,6 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-const SITE_URL = "https://cloudwaremx.com";
 const TITLE = "CloudWare MX | Internet en Actopan, Hidalgo - Fibra Óptica e Inalámbrico";
 const DESCRIPTION =
   "CloudWare MX ofrece servicios de internet por fibra óptica e inalámbrico en Actopan, Hidalgo. Paquetes desde $250/mes. Conexión confiable y de calidad.";
@@ -46,74 +47,6 @@ export const metadata = {
 };
 
 export const viewport = { themeColor: "#14101f" };
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "InternetServiceProvider",
-  "name": "CloudWare MX",
-  "url": "https://cloudwaremx.com",
-  "logo": "https://cloudwaremx.com/logo512.png",
-  "description": "Proveedor de servicios de internet por fibra óptica e inalámbrico en Actopan, Hidalgo.",
-  "sameAs": ["https://www.facebook.com/share/1GjR9zMfbf/"],
-  "telephone": "+527721292969",
-  "email": "contacto@cloudwaremx.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "C. Efrén Rebolledo 24, Centro Nte",
-    "addressLocality": "Actopan",
-    "addressRegion": "Hidalgo",
-    "postalCode": "42500",
-    "addressCountry": "MX"
-  },
-  "areaServed": {
-    "@type": "Place",
-    "name": "Actopan, Hidalgo, México"
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "09:00",
-      "closes": "18:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "09:30",
-      "closes": "15:30"
-    }
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Paquetes de Internet",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "name": "Inalámbrico Básico - 10 Mbps",
-        "price": "250",
-        "priceCurrency": "MXN"
-      },
-      {
-        "@type": "Offer",
-        "name": "Fibra Óptica Básico - 40 Mbps",
-        "price": "250",
-        "priceCurrency": "MXN"
-      },
-      {
-        "@type": "Offer",
-        "name": "Fibra Óptica Ultra - 600 Mbps",
-        "price": "700",
-        "priceCurrency": "MXN"
-      }
-    ]
-  }
-};
 
 export default function RootLayout({ children }) {
   return (

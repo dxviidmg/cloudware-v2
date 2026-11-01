@@ -10,3 +10,4 @@ export const whatsappLink = (message) =>
   `${WHATSAPP_URL}?text=${encodeURIComponent(message)}`;
 
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
+export const SITE_URL = "https://cloudwaremx.com";

@@ -1,9 +1,10 @@
+import { Section } from "@/components/ui/section/Section";
 import { Title } from "@/components/ui/title/Title";
 import "./About.css";
 
 export const About = () => (
   <>
-    <section className="section" id="nosotros" aria-labelledby="nosotros-titulo">
+    <Section id="nosotros">
       <div className="container-cw about-text">
         <div>
           <Title id="nosotros-titulo" eyebrow="Quiénes somos" title="Conectamos Hidalgo desde el corazón de Actopan" />
@@ -19,7 +20,7 @@ export const About = () => (
         </div>
 
       </div>
-    </section>
+    </Section>
 
   </>
 );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { Section } from "@/components/ui/section/Section";
 import { Title } from "@/components/ui/title/Title";
 import { PackageCard } from "./PackageCard";
 import { packageGroups } from "@/data/packages";
@@ -23,7 +24,7 @@ export const Packages = () => {
   const group = packageGroups.find((g) => g.id === active);
 
   return (
-    <section className="section" id="paquetes" aria-labelledby="paquetes-titulo">
+    <Section id="paquetes">
       <div className="container-cw">
         <Title
           id="paquetes-titulo"
@@ -60,6 +61,6 @@ export const Packages = () => {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
