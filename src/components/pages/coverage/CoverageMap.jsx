@@ -3,17 +3,28 @@
 import { useEffect, useRef, useState } from "react";
 import coverage from "../../../data/coverage.json";
 
-const BOUNDS = { minLon: -99.95, maxLon: -97.88, minLat: 19.55, maxLat: 21.48, pad: 28 };
+const PAD = 28;
+const LONS = coverage.state.map((p) => p[0]);
+const LATS = coverage.state.map((p) => p[1]);
+const BOUNDS = {
+  minLon: Math.min(...LONS),
+  maxLon: Math.max(...LONS),
+  minLat: Math.min(...LATS),
+  maxLat: Math.max(...LATS),
+};
+// a degree of longitude is shorter than one of latitude: cos(lat) keeps real proportions
+const LON_K = Math.cos((((BOUNDS.minLat + BOUNDS.maxLat) / 2) * Math.PI) / 180);
+const SPAN_X = (BOUNDS.maxLon - BOUNDS.minLon) * LON_K;
+const SPAN_Y = BOUNDS.maxLat - BOUNDS.minLat;
 const COLORS = { fibra: "#c4a8ff", antena: "#f5a623" };
 const MIN_DIST = 34;
 const FONT = "Poppins, sans-serif";
 
 function project(lon, lat, w, h) {
-  const { minLon, maxLon, minLat, maxLat, pad } = BOUNDS;
-  const sc = Math.min((w - pad * 2) / (maxLon - minLon), (h - pad * 2) / (maxLat - minLat));
-  const offX = pad + (w - pad * 2 - (maxLon - minLon) * sc) / 2;
-  const offY = pad + (h - pad * 2 - (maxLat - minLat) * sc) / 2;
-  return [offX + (lon - minLon) * sc, h - (offY + (lat - minLat) * sc)];
+  const sc = Math.min((w - PAD * 2) / SPAN_X, (h - PAD * 2) / SPAN_Y);
+  const offX = PAD + (w - PAD * 2 - SPAN_X * sc) / 2;
+  const offY = PAD + (h - PAD * 2 - SPAN_Y * sc) / 2;
+  return [offX + (lon - BOUNDS.minLon) * LON_K * sc, h - (offY + (lat - BOUNDS.minLat) * sc)];
 }
 
 function pill(ctx, x, y, w, h, r) {
@@ -57,7 +68,7 @@ export function CoverageMap({ mode }) {
 
     const resize = () => {
       const w = cv.parentElement.clientWidth;
-      const h = Math.round(Math.min(w * 0.95, 560));
+      const h = Math.round(Math.min((w - PAD * 2) * (SPAN_Y / SPAN_X) + PAD * 2, 560));
       const dpr = window.devicePixelRatio || 1;
       cv.width = w * dpr;
       cv.height = h * dpr;
