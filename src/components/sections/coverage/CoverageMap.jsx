@@ -2,20 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import coverage from "@/data/coverage.json";
-import hidalgo from "@/data/hidalgo.json";
 import { PAD, SPAN_X, SPAN_Y, CENTER, project } from "./map-geometry";
-import { FONT, pill, drawPopup } from "./map-draw";
+import { drawMunicipios, drawSignal, drawPin, drawPopup } from "./map-draw";
 
 const COLORS = { fibra: "#c4a8ff", antena: "#f5a623" };
-// label position relative to the real municipio location (px); keeps pins at true scale
-const LABELS = {
-  "Santiago de Anaya": [-28, -34],
-  "San Salvador": [-70, 6],
-  Actopan: [30, -40],
-  "El Arenal": [62, 12],
-  "San Agustín Tlaxiaca": [0, 36],
-};
-
 export function CoverageMap({ mode }) {
   const canvasRef = useRef(null);
   const modeRef = useRef(mode);
@@ -73,92 +63,20 @@ export function CoverageMap({ mode }) {
       const muns = coverage[current];
       ctx.clearRect(0, 0, w, h);
 
-      const covered = new Set(muns.map((m) => m.name));
-      hidalgo.forEach((m) => {
-        const on = covered.has(m.name);
-        ctx.beginPath();
-        m.rings.forEach((ring) => {
-          ring.forEach(([lon, lat], i) => {
-            const [x, y] = project(lon, lat, w, h);
-            i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-          });
-          ctx.closePath();
-        });
-        ctx.fillStyle = on ? `${color}55` : "rgba(108, 63, 160, 0.22)";
-        ctx.fill();
-        ctx.strokeStyle = on ? color : "rgba(165, 140, 191, 0.45)";
-        ctx.lineWidth = on ? 1.5 : 0.7;
-        ctx.stroke();
-      });
+      drawMunicipios(ctx, new Set(muns.map((m) => m.name)), color, w, h);
 
       signals.forEach((s) => {
         if (!reduced) {
           s.t += s.speed;
           if (s.t > 1) s.t = 0;
         }
-        const from = muns[s.from % muns.length];
-        const to = muns[s.to % muns.length];
-        if (!from || !to) return;
-        const [fx, fy] = project(...CENTER[from.name], w, h);
-        const [tx, ty] = project(...CENTER[to.name], w, h);
-        const x = fx + (tx - fx) * s.t;
-        const y = fy + (ty - fy) * s.t;
-        const grd = ctx.createRadialGradient(x, y, 0, x, y, s.size * 3);
-        grd.addColorStop(0, `${color}${Math.round(s.opacity * 255).toString(16).padStart(2, "0")}`);
-        grd.addColorStop(1, `${color}00`);
-        ctx.beginPath();
-        ctx.arc(x, y, s.size * 3, 0, Math.PI * 2);
-        ctx.fillStyle = grd;
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(x, y, s.size, 0, Math.PI * 2);
-        ctx.fillStyle = color;
-        ctx.fill();
+        drawSignal(ctx, s, muns, color, w, h);
       });
 
       pulse += reduced ? 0 : 0.04;
-      const pts = muns.map((m) => ({ m, p: project(...CENTER[m.name], w, h) }));
-
-      dots = [];
-      pts.forEach(({ m, p: [x, y] }) => {
-        const isSel = selected && selected.name === m.name;
-        for (let r = 0; r < 3; r++) {
-          const pr = (isSel ? 14 : 9) + r * 7 + Math.sin(pulse - r * 0.8) * 2;
-          ctx.beginPath();
-          ctx.arc(x, y, pr, 0, Math.PI * 2);
-          ctx.fillStyle = `${color}${Math.round((0.15 - r * 0.04) * (isSel ? 1.5 : 1) * 255).toString(16).padStart(2, "0")}`;
-          ctx.fill();
-        }
-        const [ldx, ldy] = LABELS[m.name] ?? [0, -30];
-        const lx = x + ldx;
-        const ly = y + ldy;
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(lx, ly - 4);
-        ctx.strokeStyle = "rgba(255,255,255,0.35)";
-        ctx.lineWidth = 1;
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.arc(x, y, isSel ? 6 : 4.5, 0, Math.PI * 2);
-        ctx.fillStyle = color;
-        ctx.fill();
-        ctx.strokeStyle = "#14101f";
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        ctx.font = `${isSel ? "bold " : ""}11px ${FONT}`;
-        const lw = ctx.measureText(m.name).width;
-        ctx.fillStyle = isSel ? color : "rgba(20, 16, 31, 0.92)";
-        pill(ctx, lx - lw / 2 - 5, ly - 12, lw + 10, 17, 4);
-        ctx.fill();
-        ctx.strokeStyle = "rgba(255,255,255,0.18)";
-        ctx.lineWidth = 1;
-        ctx.stroke();
-        ctx.fillStyle = isSel ? "#14101f" : "#f4f1fb";
-        ctx.textAlign = "center";
-        ctx.fillText(m.name, lx, ly);
-        dots.push({ x, y, mun: m, box: { x: lx - lw / 2 - 5, y: ly - 12, w: lw + 10, h: 17 } });
-      });
+      dots = muns.map((m) =>
+        drawPin(ctx, m, project(...CENTER[m.name], w, h), color, selected?.name === m.name, pulse)
+      );
       ctx.textAlign = "left";
 
       if (selected?.localidades) drawPopup(ctx, selected, color, w, h);
