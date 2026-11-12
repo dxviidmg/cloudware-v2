@@ -22,8 +22,6 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: TITLE,
   description: DESCRIPTION,
-  keywords:
-    "internet Actopan, internet Hidalgo, fibra óptica Actopan, WiFi Actopan, proveedor internet Hidalgo, CloudWare, paquetes internet, internet inalámbrico Hidalgo",
   authors: [{ name: "CloudWare MX" }],
   alternates: { canonical: "/" },
   manifest: "/manifest.json",

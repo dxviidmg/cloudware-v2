@@ -1,4 +1,5 @@
-import { SITE_URL, WHATSAPP_NUMBER, EMAIL, FACEBOOK_URL } from "@/data/constants";
+import { SITE_URL, WHATSAPP_NUMBER, FACEBOOK_URL, STREET } from "@/data/constants";
+import { packageGroups } from "@/data/packages";
 
 export const jsonLd = {
   "@context": "https://schema.org",
@@ -9,10 +10,9 @@ export const jsonLd = {
   "description": "Proveedor de servicios de internet por fibra óptica e inalámbrico en Actopan, Hidalgo.",
   "sameAs": [FACEBOOK_URL],
   "telephone": `+${WHATSAPP_NUMBER}`,
-  "email": EMAIL,
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "C. Efrén Rebolledo 24, Centro Nte",
+    "streetAddress": `${STREET}, Centro Nte`,
     "addressLocality": "Actopan",
     "addressRegion": "Hidalgo",
     "postalCode": "42500",
@@ -45,25 +45,13 @@ export const jsonLd = {
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Paquetes de Internet",
-    "itemListElement": [
-      {
+    "itemListElement": packageGroups.flatMap((g) =>
+      g.plans.map((p) => ({
         "@type": "Offer",
-        "name": "Inalámbrico Básico - 10 Mbps",
-        "price": "250",
+        "name": `${g.label} ${p.name} - ${p.speed} Mbps`,
+        "price": String(p.price),
         "priceCurrency": "MXN"
-      },
-      {
-        "@type": "Offer",
-        "name": "Fibra Óptica Básico - 40 Mbps",
-        "price": "250",
-        "priceCurrency": "MXN"
-      },
-      {
-        "@type": "Offer",
-        "name": "Fibra Óptica Ultra - 600 Mbps",
-        "price": "700",
-        "priceCurrency": "MXN"
-      }
-    ]
+      }))
+    )
   }
 };

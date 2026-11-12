@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/assets/images/logo.png";
-import { BsWhatsapp, BsEnvelope, BsClock, BsStickies, BsFacebook } from "react-icons/bs";
-import { WHATSAPP_DISPLAY, EMAIL, HOURS, FACEBOOK_URL } from "@/data/constants";
+import { BsWhatsapp, BsClock, BsStickies, BsFacebook } from "react-icons/bs";
+import { WHATSAPP_DISPLAY, HOURS, FACEBOOK_URL } from "@/data/constants";
 import "./Footer.css";
 
 export const Footer = () => (
@@ -10,7 +10,7 @@ export const Footer = () => (
     <div className="container-cw footer-grid">
       <div>
         <Image src={logo} alt="CloudWare MX" height={44} style={{ width: "auto" }} className="footer-logo" />
-        <h2>Soporte técnico</h2>
+        <h2>Nuestro compromiso</h2>
         <p>
           En CloudWare la satisfacción de nuestros clientes es lo más importante; por eso hacemos lo
           necesario para mantener la mejor estabilidad y atender los reportes de falla a la brevedad.
@@ -23,9 +23,6 @@ export const Footer = () => (
         <h2>Contacto</h2>
         <p className="footer-line">
           <BsWhatsapp aria-hidden="true" /> {WHATSAPP_DISPLAY}
-        </p>
-        <p className="footer-line">
-          <BsEnvelope aria-hidden="true" /> {EMAIL}
         </p>
         <p className="footer-line">
           <BsClock aria-hidden="true" /> {HOURS}
