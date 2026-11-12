@@ -1,5 +1,5 @@
 .footer {
-  padding-block: var(--space-8) var(--space-6);
+  padding-block: var(--space-8) calc(var(--space-6) + 56px + env(safe-area-inset-bottom));
   background: #0f0b19;
   border-top: 1px solid var(--border);
 }
