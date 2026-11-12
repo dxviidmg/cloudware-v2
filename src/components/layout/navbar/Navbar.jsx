@@ -1,14 +1,9 @@
 "use client";
 
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import logo from "@/assets/images/logo.png";
-
 import "./Navbar.css";
 
 const pdfs = [
@@ -28,7 +23,9 @@ const links = [
 
 export function MyNavbar() {
   const [active, setActive] = useState("");
-  const [expanded, setExpanded] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [docsOpen, setDocsOpen] = useState(false);
+  const docsRef = useRef(null);
 
   useEffect(() => {
     const els = links.map((l) => document.getElementById(l.id)).filter(Boolean);
@@ -47,40 +44,86 @@ export function MyNavbar() {
     };
   }, []);
 
+  useEffect(() => {
+    const onPointer = (e) => {
+      if (docsRef.current && !docsRef.current.contains(e.target)) setDocsOpen(false);
+    };
+    const onKey = (e) => {
+      if (e.key !== "Escape") return;
+      setDocsOpen(false);
+      setOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
+  const close = () => {
+    setOpen(false);
+    setDocsOpen(false);
+  };
+
   return (
-    <Navbar expand="xl" expanded={expanded} onToggle={setExpanded}>
-      <Container>
-        <Navbar.Brand as={Link} href="/">
-          <Image src={logo} height={48} alt="CloudWare MX" priority style={{ width: "auto" }} />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Abrir menú" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+    <header className="site-header">
+      <div className="container-cw site-header-bar">
+        <Link href="/" className="site-brand" onClick={close}>
+          <Image src={logo} width={210} height={48} quality={100} sizes="210px" alt="CloudWare MX" priority />
+        </Link>
+
+        <button
+          type="button"
+          className="nav-toggle"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={open}
+          aria-controls="site-nav"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span aria-hidden="true" />
+        </button>
+
+        <nav id="site-nav" className={`site-nav ${open ? "is-open" : ""}`} aria-label="Principal">
+          <ul className="nav-list">
             {links.map(({ id, label }) => (
-              <Nav.Link
-                as={Link}
-                href={`/#${id}`}
-                active={active === id}
-                aria-current={active === id ? "location" : undefined}
-                onClick={() => setExpanded(false)}
-                key={id}
-              >
-                {label}
-              </Nav.Link>
-            ))}
-            <NavDropdown title="Documentación" id="basic-nav-dropdown">
-              {pdfs.map(({ href, label }) => (
-                <NavDropdown.Item href={href} target="_blank" rel="noopener noreferrer" key={href}>
+              <li key={id}>
+                <Link
+                  href={`/#${id}`}
+                  className={`nav-link ${active === id ? "active" : ""}`}
+                  aria-current={active === id ? "location" : undefined}
+                  onClick={close}
+                >
                   {label}
-                </NavDropdown.Item>
-              ))}
-            </NavDropdown>
-          </Nav>
-          <Link href="/#paquetes" className="btn-cw btn-cw-primary navbar-cta" onClick={() => setExpanded(false)}>
+                </Link>
+              </li>
+            ))}
+            <li className="nav-docs" ref={docsRef}>
+              <button
+                type="button"
+                className="nav-link nav-docs-toggle"
+                aria-expanded={docsOpen}
+                aria-controls="nav-docs-menu"
+                onClick={() => setDocsOpen((v) => !v)}
+              >
+                Documentación
+              </button>
+              <ul id="nav-docs-menu" className="nav-menu" hidden={!docsOpen}>
+                {pdfs.map(({ href, label }) => (
+                  <li key={href}>
+                    <a href={href} target="_blank" rel="noopener noreferrer" onClick={close}>
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          </ul>
+          <Link href="/#paquetes" className="btn-cw btn-cw-primary navbar-cta" onClick={close}>
             Ver paquetes
           </Link>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        </nav>
+      </div>
+    </header>
   );
 }

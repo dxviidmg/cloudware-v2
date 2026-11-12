@@ -4,6 +4,7 @@ const sections = ["nosotros", "cobertura", "paquetes", "contacto"];
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: { qualities: [75, 100] },
   turbopack: { root: path.resolve(import.meta.dirname) },
   // old multi-page routes -> anchors of the single landing
   redirects: async () =>
