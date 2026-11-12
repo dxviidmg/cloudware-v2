@@ -1,10 +1,9 @@
-import { BsGeoAlt, BsWhatsapp, BsClock, BsChatDots, BsSignTurnRight } from "react-icons/bs";
+import { BsGeoAlt, BsClock, BsWhatsapp, BsSignTurnRight } from "react-icons/bs";
 import { Reveal } from "@/components/ui/reveal/Reveal";
 import { Section } from "@/components/ui/section/Section";
 import { Title } from "@/components/ui/title/Title";
-import { WHATSAPP_DISPLAY, WHATSAPP_URL, ADDRESS, HOURS, MAPS_URL } from "@/data/constants";
+import { ADDRESS, HOURS, MAPS_URL, WHATSAPP_DISPLAY, whatsappLink } from "@/data/constants";
 import { Map } from "./Map";
-import { SendEmail } from "./SendEmail";
 import "./Contact.css";
 
 export const Contact = () => (
@@ -13,32 +12,30 @@ export const Contact = () => (
       <Title
         id="contacto-titulo"
         eyebrow="Contacto"
-        title="Contáctanos"
-        subtitle="¿Tienes dudas o quieres contratar? Escríbenos y te respondemos en menos de 24 horas."
+        title="¿Listo para conectarte?"
+        subtitle="Resolvemos tus dudas y te ayudamos a contratar. Escríbenos por WhatsApp y te respondemos en horario de atención."
       />
-
-      <Reveal className="card-cw support-note">
-        <div>
-          <strong>Área técnica siempre disponible</strong>
-          <span>Atendemos por WhatsApp al {WHATSAPP_DISPLAY}.</span>
-        </div>
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-cw btn-cw-primary">
-          <BsWhatsapp aria-hidden="true" /> WhatsApp
-        </a>
-      </Reveal>
 
       <div className="contact-grid">
         <Reveal className="card-cw contact-card" variant="left">
           <header className="contact-card-head">
             <span className="icon-chip">
-              <BsChatDots aria-hidden="true" />
+              <BsWhatsapp aria-hidden="true" />
             </span>
             <div>
-              <h3>Envíanos un mensaje</h3>
-              <p>Déjanos tus datos y elige un paquete.</p>
+              <h3>Escríbenos por WhatsApp</h3>
+              <p>{WHATSAPP_DISPLAY}</p>
             </div>
           </header>
-          <SendEmail />
+          <p>Cuéntanos qué necesitas, cotiza tu paquete o reporta una falla. Te atendemos directamente.</p>
+          <a
+            href={whatsappLink("Hola, quiero información sobre el servicio de internet")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-cw btn-cw-primary"
+          >
+            <BsWhatsapp aria-hidden="true" /> Enviar mensaje
+          </a>
         </Reveal>
 
         <Reveal className="card-cw contact-card" variant="right" delay={120}>
