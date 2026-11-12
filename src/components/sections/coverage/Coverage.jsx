@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BsRouter, BsBroadcast, BsCheckCircleFill, BsGeoAlt, BsHouse, BsWifi, BsLightningCharge,
 } from "react-icons/bs";
@@ -21,8 +21,21 @@ const numbers = [
   { icon: BsLightningCharge, value: "100%", label: "Fibra propia", note: "Infraestructura propia" },
 ];
 
+const ROTATE_MS = 10000;
+
 export const Coverage = () => {
   const [mode, setMode] = useState("fibra");
+  const [paused, setPaused] = useState(false);
+
+  // auto-switch fibra/antena every 10 s; paused while the buttons or the map are hovered (or the buttons focused),
+  // and off for users who prefer reduced motion. Changing mode (also by click) restarts the timer.
+  useEffect(() => {
+    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setTimeout(() => {
+      setMode((m) => technologies[(technologies.findIndex((t) => t.id === m) + 1) % technologies.length].id);
+    }, ROTATE_MS);
+    return () => clearTimeout(id);
+  }, [mode, paused]);
 
   return (
     <Section id="cobertura">
@@ -35,7 +48,16 @@ export const Coverage = () => {
             subtitle="Operamos desde Actopan con tecnología de fibra óptica propia y soluciones inalámbricas para llegar más lejos."
           />
 
-          <Reveal className="cov-types" role="group" aria-label="Tipo de cobertura" delay={100}>
+          <Reveal
+            className="cov-types"
+            role="group"
+            aria-label="Tipo de cobertura"
+            delay={100}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocus={() => setPaused(true)}
+            onBlur={() => setPaused(false)}
+          >
             {technologies.map(({ id, icon: Icon, label, title, desc }) => (
               <button
                 key={id}
@@ -53,6 +75,7 @@ export const Coverage = () => {
                   <span>{desc}</span>
                 </span>
                 {mode === id && <BsCheckCircleFill className="cov-check" aria-hidden="true" />}
+                {mode === id && !paused && <span className="cov-progress" aria-hidden="true" />}
               </button>
             ))}
           </Reveal>
@@ -73,7 +96,13 @@ export const Coverage = () => {
         </div>
 
         <div>
-          <Reveal className="card-cw cov-map-card" variant="right" delay={150}>
+          <Reveal
+            className="card-cw cov-map-card"
+            variant="right"
+            delay={150}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
             <div className="cov-map-header">
               <span className="icon-chip">
                 <BsWifi aria-hidden="true" />
@@ -93,9 +122,10 @@ export const Coverage = () => {
               ) : (
                 <span><i className="leg-dot leg-antenna" aria-hidden="true" /> Antena disponible</span>
               )}
-              {mode === "fibra" && (
-                <span><i className="leg-dot leg-soon" aria-hidden="true" /> Próxima cobertura óptica</span>
-              )}
+              <span>
+                <i className={`leg-dot leg-other leg-other-${mode === "fibra" ? "antenna" : "fiber"}`} aria-hidden="true" />{" "}
+                {mode === "fibra" ? "Solo antena" : "Solo fibra óptica"}
+              </span>
             </div>
           </Reveal>
         </div>

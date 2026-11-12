@@ -66,9 +66,10 @@ export function drawPopup(ctx, selected, color, w, h) {
   });
 }
 
-export function drawMunicipios(ctx, covered, color, w, h) {
+export function drawMunicipios(ctx, covered, color, w, h, other = new Set(), otherColor = color) {
   hidalgo.forEach((m) => {
     const on = covered.has(m.name);
+    const alt = !on && other.has(m.name);
     ctx.beginPath();
     m.rings.forEach((ring) => {
       ring.forEach(([lon, lat], i) => {
@@ -77,11 +78,13 @@ export function drawMunicipios(ctx, covered, color, w, h) {
       });
       ctx.closePath();
     });
-    ctx.fillStyle = on ? `${color}55` : "rgba(108, 63, 160, 0.22)";
+    ctx.fillStyle = on ? `${color}55` : alt ? `${otherColor}26` : "rgba(108, 63, 160, 0.22)";
     ctx.fill();
-    ctx.strokeStyle = on ? color : "rgba(165, 140, 191, 0.45)";
-    ctx.lineWidth = on ? 1.5 : 0.7;
+    ctx.strokeStyle = on ? color : alt ? `${otherColor}cc` : "rgba(165, 140, 191, 0.45)";
+    ctx.lineWidth = on ? 1.5 : alt ? 1.2 : 0.7;
+    ctx.setLineDash(alt ? [5, 4] : []);
     ctx.stroke();
+    ctx.setLineDash([]);
   });
 }
 
@@ -131,7 +134,7 @@ export function drawPin(ctx, m, [x, y], color, isSel, pulse) {
   ctx.lineWidth = 1.5;
   ctx.stroke();
 
-  ctx.font = `${isSel ? "bold " : ""}11px ${FONT}`;
+  ctx.font = `${isSel ? "bold " : ""}12px ${FONT}`;
   const lw = ctx.measureText(m.name).width;
   ctx.fillStyle = isSel ? color : "rgba(20, 16, 31, 0.92)";
   pill(ctx, lx - lw / 2 - 5, ly - 12, lw + 10, 17, 4);
@@ -143,4 +146,25 @@ export function drawPin(ctx, m, [x, y], color, isSel, pulse) {
   ctx.textAlign = "center";
   ctx.fillText(m.name, lx, ly);
   return { x, y, mun: m, box: { x: lx - lw / 2 - 5, y: ly - 12, w: lw + 10, h: 17 } };
+}
+
+// municipio served only by the other technology: dashed outline plus a muted tag, no pin
+export function drawOtherTag(ctx, m, [x, y], color, tag) {
+  const text = `${m.name} · ${tag}`;
+  const [ldx, ldy] = LABELS[m.name] ?? [0, -30];
+  const lx = x + ldx;
+  const ly = y + ldy;
+  ctx.font = `11px ${FONT}`;
+  const lw = ctx.measureText(text).width;
+  ctx.fillStyle = "rgba(20, 16, 31, 0.85)";
+  pill(ctx, lx - lw / 2 - 5, ly - 12, lw + 10, 17, 4);
+  ctx.fill();
+  ctx.strokeStyle = `${color}99`;
+  ctx.setLineDash([3, 3]);
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = "rgba(244, 241, 251, 0.8)";
+  ctx.textAlign = "center";
+  ctx.fillText(text, lx, ly);
 }

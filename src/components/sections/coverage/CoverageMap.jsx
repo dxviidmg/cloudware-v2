@@ -3,9 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import coverage from "@/data/coverage.json";
 import { PAD, SPAN_X, SPAN_Y, CENTER, project } from "./map-geometry";
-import { drawMunicipios, drawSignal, drawPin, drawPopup } from "./map-draw";
+import { drawMunicipios, drawSignal, drawPin, drawPopup, drawOtherTag } from "./map-draw";
 
 const COLORS = { fibra: "#c4a8ff", antena: "#f5a623" };
+const OTHER = { fibra: "antena", antena: "fibra" };
+const TAG = { fibra: "solo fibra", antena: "solo antena" };
 export function CoverageMap({ mode }) {
   const canvasRef = useRef(null);
   const modeRef = useRef(mode);
@@ -28,7 +30,7 @@ export function CoverageMap({ mode }) {
     let signals = [];
 
     const initSignals = () => {
-      signals = [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 2], [1, 3]].map(([from, to]) => ({
+      signals = [[0, 1], [1, 2], [2, 3], [3, 0], [0, 2], [1, 3]].map(([from, to]) => ({
         from, to,
         t: Math.random(),
         speed: 0.004 + Math.random() * 0.003,
@@ -63,7 +65,13 @@ export function CoverageMap({ mode }) {
       const muns = coverage[current];
       ctx.clearRect(0, 0, w, h);
 
-      drawMunicipios(ctx, new Set(muns.map((m) => m.name)), color, w, h);
+      const names = new Set(muns.map((m) => m.name));
+      const otherMode = OTHER[current];
+      const onlyOther = coverage[otherMode].filter((m) => !names.has(m.name));
+      drawMunicipios(ctx, names, color, w, h, new Set(onlyOther.map((m) => m.name)), COLORS[otherMode]);
+      onlyOther.forEach((m) =>
+        drawOtherTag(ctx, m, project(...CENTER[m.name], w, h), COLORS[otherMode], TAG[otherMode])
+      );
 
       signals.forEach((s) => {
         if (!reduced) {

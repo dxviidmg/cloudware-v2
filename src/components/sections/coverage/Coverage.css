@@ -33,6 +33,24 @@
   cursor: pointer;
 }
 
+.cov-type {
+  overflow: hidden;
+}
+
+.cov-progress {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: cov-progress 10s linear forwards;
+}
+
+@keyframes cov-progress {
+  to { transform: scaleX(1); }
+}
+
 .cov-type.is-active {
   border-color: var(--accent);
   background: var(--surface-2);
@@ -172,7 +190,9 @@
 
 .leg-fiber { background: #c4a8ff; }
 .leg-antenna { background: var(--accent); }
-.leg-soon { border: 2px dashed var(--accent-light); }
+.leg-other { background: transparent; border: 2px dashed; }
+.leg-other-antenna { border-color: var(--accent); }
+.leg-other-fiber { border-color: #c4a8ff; }
 
 .cov-list {
   margin-top: var(--space-4);
