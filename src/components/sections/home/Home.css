@@ -6,7 +6,7 @@
 
 .hero-img {
   position: relative;
-  height: 260px;
+  height: clamp(220px, 36svh, 380px);
   margin-top: calc(-1 * var(--space-8));
   margin-bottom: var(--space-4);
   -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
@@ -19,9 +19,19 @@
   object-position: 70% center;
 }
 
+@media (min-width: 640px) and (max-width: 991px) {
+  .hero-grid > div {
+    max-width: 520px;
+  }
+
+  .hero-img {
+    height: clamp(280px, 40svh, 420px);
+  }
+}
+
 @media (min-width: 992px) {
   .hero {
-    min-height: 560px;
+    min-height: min(560px, 100svh);
     display: flex;
     align-items: center;
     padding-block: var(--space-7);
@@ -75,15 +85,9 @@
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
   gap: var(--space-4);
   margin: 0;
-}
-
-@media (min-width: 768px) {
-  .stats {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 .stat {
@@ -107,7 +111,7 @@
 }
 
 .service {
-  padding: var(--space-6);
+  padding: clamp(var(--space-5), 4vw, var(--space-6));
 }
 
 .service h3 {

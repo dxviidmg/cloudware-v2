@@ -58,17 +58,17 @@ export const Coverage = () => {
           </Reveal>
 
           <Reveal className="card-cw cov-numbers" delay={200}>
-            <h2>Cobertura en números</h2>
-            <dl>
+            <h3>Cobertura en números</h3>
+            <ul>
               {numbers.map(({ icon: Icon, value, label, note }) => (
-                <div key={label}>
+                <li key={label}>
                   <Icon aria-hidden="true" />
-                  <dd className="tabular">{value}</dd>
-                  <dt>{label}</dt>
+                  <strong className="tabular">{value}</strong>
+                  <span className="cov-num-label">{label}</span>
                   <span>{note}</span>
-                </div>
+                </li>
               ))}
-            </dl>
+            </ul>
           </Reveal>
         </div>
 

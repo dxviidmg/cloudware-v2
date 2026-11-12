@@ -69,44 +69,48 @@
   padding: var(--space-5);
 }
 
-.cov-numbers h2 {
+.cov-numbers {
+  container-type: inline-size;
+}
+
+.cov-numbers h3 {
   margin-bottom: var(--space-4);
   font-size: 1.15rem;
 }
 
-.cov-numbers dl {
+.cov-numbers ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: var(--space-4);
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.cov-numbers dl > div {
+.cov-numbers li {
   display: grid;
   gap: 2px;
 }
 
 .cov-numbers svg {
+  display: block;
   font-size: 1.2rem;
   color: var(--accent);
 }
 
-.cov-numbers dd {
-  order: 1;
-  margin: 0;
-  font-size: 1.9rem;
+.cov-numbers strong {
+  font-size: clamp(1.5rem, 8cqi, 1.9rem);
   font-weight: 800;
   line-height: 1.1;
   color: var(--text);
 }
 
-.cov-numbers dt {
-  order: 2;
+.cov-num-label {
   font-weight: 600;
+  color: var(--text) !important;
 }
 
-.cov-numbers dl span {
-  order: 3;
+.cov-numbers li span {
   font-size: 0.85rem;
   color: var(--text-muted);
 }

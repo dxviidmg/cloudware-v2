@@ -1,7 +1,7 @@
 .whatsapp-btn {
   position: fixed;
-  bottom: var(--space-5);
-  right: var(--space-5);
+  bottom: max(var(--space-4), env(safe-area-inset-bottom));
+  right: max(var(--space-4), env(safe-area-inset-right));
   z-index: 1000;
   display: grid;
   place-items: center;
