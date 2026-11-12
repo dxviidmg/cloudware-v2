@@ -29,9 +29,9 @@ export const Packages = () => {
       <div className="container-cw">
         <Title
           id="paquetes-titulo"
-          eyebrow="Nuestros planes"
-          title="Nuestros paquetes"
-          subtitle="Elige el plan que mejor se adapte a ti. Sin contratos forzosos, sin letras chiquitas."
+          eyebrow="Paquetes"
+          title="Internet a tu medida"
+          subtitle="Elige el plan que mejor se adapte a ti. Puedes cancelar en cualquier momento con aviso por escrito y estando al corriente en tus pagos."
         />
 
         <Reveal className="tabs" role="tablist" aria-label="Tipo de servicio" variant="zoom" delay={100}>

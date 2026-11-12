@@ -4,7 +4,7 @@ import { Title } from "@/components/ui/title/Title";
 import "./About.css";
 
 const PARAGRAPHS = [
-  "Somos una empresa Hidalguense que nace del esfuerzo, trabajo y dedicación, en busca de satisfacer la necesidad cotidiana de contar con una conexión a internet confiable y de calidad.",
+  "Somos una empresa hidalguense que nace del esfuerzo, trabajo y dedicación, en busca de satisfacer la necesidad cotidiana de contar con una conexión a internet confiable y de calidad.",
   "El desarrollo tecnológico se encuentra en constante cambio, y es por eso que nos esforzamos a diario para brindar el servicio que te mereces.",
 ];
 

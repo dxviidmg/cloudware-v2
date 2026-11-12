@@ -6,31 +6,37 @@ import { CountUp } from "@/components/ui/count-up/CountUp";
 import hero from "@/assets/images/hero.webp";
 import { Section } from "@/components/ui/section/Section";
 import { Title } from "@/components/ui/title/Title";
-import { whatsappLink } from "@/data/constants";
+import { whatsappLink, HOURS } from "@/data/constants";
+import { packageGroups } from "@/data/packages";
 import "./Home.css";
 
 const stats = [
   { to: 2000, prefix: "+", label: "clientes activos" },
-  { to: 99, suffix: "%", label: "uptime garantizado" },
+  { to: 99, suffix: "%", label: "disponibilidad de red" },
   { to: 5, suffix: "+", label: "años de experiencia" },
-  { text: "24/7", label: "soporte técnico" },
+  { to: 5, label: "municipios con cobertura" },
 ];
+
+const speedRange = (id) => {
+  const speeds = packageGroups.find((g) => g.id === id).plans.map((p) => p.speed);
+  return `${Math.min(...speeds)} a ${Math.max(...speeds)} Mbps`;
+};
 
 const services = [
   {
     icon: BsWifi,
     title: "Internet Hogar",
-    desc: "40 Mbps a 600 Mbps. Fibra óptica directa a tu casa, sin degradación.",
+    desc: `Fibra óptica de ${speedRange("fibra")} o internet inalámbrico de ${speedRange("inalambrico")}.`,
   },
   {
     icon: BsShieldLock,
     title: "Red Segura",
-    desc: "Protección contra DDoS, firewall administrado y monitoreo 24/7.",
+    desc: "Protección contra DDoS, firewall administrado y monitoreo constante de la red.",
   },
   {
     icon: BsHeadset,
     title: "Soporte Inmediato",
-    desc: "Atención por WhatsApp y teléfono.",
+    desc: `Atención por WhatsApp y teléfono. ${HOURS}.`,
   },
 ];
 
@@ -44,7 +50,7 @@ export const Home = () => (
         <div>
           <span className="eyebrow rise">Conectando tu mundo</span>
           <h1 className="rise" style={{ animationDelay: "80ms" }}>
-            Soluciones de Internet Adaptadas a Tus Necesidades
+            Soluciones de internet adaptadas a tus necesidades
           </h1>
           <p className="hero-lead rise" style={{ animationDelay: "160ms" }}>
             Fibra óptica e internet inalámbrico en Actopan, con servicio de calidad respaldado por
@@ -64,7 +70,6 @@ export const Home = () => (
             </a>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -75,7 +80,7 @@ export const Home = () => (
             <Reveal className="stat card-cw" key={s.label} delay={i * 80}>
               <dt>{s.label}</dt>
               <dd className="tabular">
-                {s.text ?? <CountUp to={s.to} prefix={s.prefix} suffix={s.suffix} />}
+                <CountUp to={s.to} prefix={s.prefix} suffix={s.suffix} />
               </dd>
             </Reveal>
           ))}

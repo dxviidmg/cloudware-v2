@@ -51,7 +51,7 @@ export function MyNavbar() {
     <Navbar expand="xl" expanded={expanded} onToggle={setExpanded}>
       <Container>
         <Navbar.Brand as={Link} href="/">
-          <Image src={logo} height={48} alt="CloudWare MX, cada segundo cuenta" priority style={{ width: "auto" }} />
+          <Image src={logo} height={48} alt="CloudWare MX" priority style={{ width: "auto" }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Abrir menú" />
         <Navbar.Collapse id="basic-navbar-nav">
