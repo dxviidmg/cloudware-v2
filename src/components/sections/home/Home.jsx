@@ -26,7 +26,7 @@ const services = [
   {
     icon: BsWifi,
     title: "Internet Hogar",
-    desc: `Fibra óptica de ${speedRange("fibra")} o internet inalámbrico de ${speedRange("inalambrico")}.`,
+    desc: `Fibra óptica de ${speedRange("fibra")} o internet por antena de ${speedRange("antena")}.`,
   },
   {
     icon: BsShieldLock,

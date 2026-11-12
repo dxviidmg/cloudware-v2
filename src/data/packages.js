@@ -12,9 +12,9 @@ export const packageGroups = [
     ],
   },
   {
-    id: "inalambrico",
-    label: "Inalámbrico",
-    description: "Cobertura amplia con tecnología inalámbrica de última generación",
+    id: "antena",
+    label: "Antena",
+    description: "Cobertura amplia con internet por antena, ideal para zonas más alejadas",
     plans: [
       { name: "Básico", speed: 10, price: 250 },
       { name: "Intermedio", speed: 15, price: 300, popular: true },
