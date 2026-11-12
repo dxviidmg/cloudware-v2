@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/ui/reveal/Reveal";
+import { ScrollText } from "@/components/ui/scroll-text/ScrollText";
 import { Section } from "@/components/ui/section/Section";
 import { Title } from "@/components/ui/title/Title";
 import "./About.css";
@@ -12,10 +12,8 @@ export const About = () => (
   <Section id="nosotros">
     <div className="container-cw about-text">
       <Title id="nosotros-titulo" eyebrow="Quiénes somos" title="Conectamos Hidalgo desde el corazón de Actopan" />
-      {PARAGRAPHS.map((text, i) => (
-        <Reveal key={i} as="p" delay={(i + 1) * 100}>
-          {text}
-        </Reveal>
+      {PARAGRAPHS.map((text) => (
+        <ScrollText key={text}>{text}</ScrollText>
       ))}
     </div>
   </Section>

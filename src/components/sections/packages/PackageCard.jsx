@@ -27,6 +27,10 @@ export function PackageCard({ plan, groupLabel, index = 0 }) {
         {price}
         <small> MXN / mes</small>
       </p>
+      <p className="package-extra tabular">
+        <span>Mínimo garantizado</span>
+        10 Mbps ↓ · 10 Mbps ↑
+      </p>
       <a
         href={whatsappLink(message)}
         target="_blank"

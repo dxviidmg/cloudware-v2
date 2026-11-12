@@ -1,6 +1,7 @@
 /* ===== TOKENS ===== */
 :root {
   color-scheme: dark;
+  interpolate-size: allow-keywords;
   --bg: #14101f;
   --surface: #1e1830;
   --surface-2: #2a2142;
@@ -249,7 +250,7 @@ main {
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition: background var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease),
-    border-color var(--t-fast) var(--ease);
+    border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
 }
 
 .btn-cw-primary {
@@ -258,6 +259,7 @@ main {
 }
 
 .btn-cw-primary:hover {
+  transform: translateY(-2px);
   background: var(--accent-light);
   color: var(--on-accent);
   box-shadow: 0 8px 24px var(--accent-glow);
@@ -287,6 +289,27 @@ main {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
   transition: background var(--t-base) var(--ease), border-color var(--t-base) var(--ease);
+}
+
+.card-cw {
+  position: relative;
+}
+
+/* light sweep that crosses the card on hover */
+.card-cw::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.08) 50%, transparent 65%);
+  background-size: 250% 100%;
+  background-position: 130% 0;
+  pointer-events: none;
+  transition: background-position 800ms var(--ease);
+}
+
+.card-cw:hover::after {
+  background-position: -30% 0;
 }
 
 .card-cw:hover {

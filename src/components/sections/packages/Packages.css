@@ -77,6 +77,15 @@
   border-radius: var(--radius-pill);
 }
 
+.popular-badge svg {
+  animation: star-pop 2.4s var(--ease) infinite;
+}
+
+@keyframes star-pop {
+  0%, 60%, 100% { transform: scale(1) rotate(0); }
+  80% { transform: scale(1.35) rotate(-12deg); }
+}
+
 .package-speed {
   display: inline-flex;
   align-items: center;
@@ -114,6 +123,35 @@
   font-size: 0.85rem;
   font-weight: 400;
   color: var(--text-muted);
+}
+
+/* shown on hover/focus; always visible where there is no hover (touch) */
+.package-extra {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--text);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+}
+
+.package-extra span {
+  display: block;
+  color: var(--text-muted);
+}
+
+.package-card:hover .package-extra,
+.package-card:focus-within .package-extra {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: none) {
+  .package-extra {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .package-card .btn-cw {

@@ -1,0 +1,7 @@
+.scroll-text {
+  --p: 1;
+}
+
+.scroll-text.is-live span {
+  opacity: clamp(0.16, calc(var(--p) * (var(--n) + 5) - var(--i)), 1);
+}
