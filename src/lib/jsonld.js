@@ -1,5 +1,6 @@
 import { SITE_URL, WHATSAPP_NUMBER, FACEBOOK_URL, STREET } from "@/data/constants";
 import { packageGroups } from "@/data/packages";
+import { faqs } from "@/data/faq";
 
 export const jsonLd = {
   "@context": "https://schema.org",
@@ -54,4 +55,14 @@ export const jsonLd = {
       }))
     )
   }
+};
+
+export const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(({ q, a }) => ({
+    "@type": "Question",
+    "name": q,
+    "acceptedAnswer": { "@type": "Answer", "text": a }
+  }))
 };

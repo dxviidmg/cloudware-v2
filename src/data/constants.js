@@ -1,6 +1,9 @@
 export const WHATSAPP_NUMBER = "527721292969";
 export const WHATSAPP_DISPLAY = "772-129-29-69";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+export const SUPPORT_NUMBER = "527721155543";
+export const SUPPORT_DISPLAY = "772-115-55-43";
+export const SUPPORT_URL = `https://wa.me/${SUPPORT_NUMBER}`;
 export const STREET = "C. Efrén Rebolledo 24";
 export const ADDRESS = `${STREET}, Actopan, Hgo.`;
 export const FACEBOOK_URL = "https://www.facebook.com/share/1GjR9zMfbf/";

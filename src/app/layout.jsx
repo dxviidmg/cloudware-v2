@@ -1,7 +1,7 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { SITE_URL } from "@/data/constants";
-import { jsonLd } from "@/lib/jsonld";
+import { jsonLd, faqLd } from "@/lib/jsonld";
 import { MyNavbar } from "@/components/layout/navbar/Navbar";
 import { Footer } from "@/components/layout/footer/Footer";
 import { WhatsAppButton } from "@/components/ui/whatsapp/WhatsAppButton";
@@ -55,6 +55,10 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
       </head>
       <body suppressHydrationWarning>

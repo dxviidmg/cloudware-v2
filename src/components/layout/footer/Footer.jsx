@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/assets/images/logo.png";
-import { BsWhatsapp, BsClock, BsGeoAlt, BsSignTurnRight, BsStickies, BsFacebook } from "react-icons/bs";
-import { WHATSAPP_DISPLAY, WHATSAPP_URL, ADDRESS, MAPS_URL, HOURS, FACEBOOK_URL } from "@/data/constants";
+import { BsWhatsapp, BsClock, BsGeoAlt, BsHeadset, BsSignTurnRight, BsStickies, BsFacebook } from "react-icons/bs";
+import { WHATSAPP_DISPLAY, WHATSAPP_URL, SUPPORT_DISPLAY, SUPPORT_URL, ADDRESS, MAPS_URL, HOURS, FACEBOOK_URL } from "@/data/constants";
 import "./Footer.css";
 
 export const Footer = () => (
@@ -25,6 +25,12 @@ export const Footer = () => (
           <BsWhatsapp aria-hidden="true" />
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
             {WHATSAPP_DISPLAY}
+          </a>
+        </p>
+        <p className="footer-line">
+          <BsHeadset aria-hidden="true" />
+          <a href={SUPPORT_URL} target="_blank" rel="noopener noreferrer">
+            Soporte: {SUPPORT_DISPLAY}
           </a>
         </p>
         <p className="footer-line">
