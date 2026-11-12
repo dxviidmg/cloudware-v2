@@ -45,8 +45,8 @@ export const ScrollText = ({ as: Tag = "p", children, ...props }) => {
   return (
     <Tag ref={ref} className="scroll-text" style={{ "--n": words.length }} {...props}>
       {words.map((word, i) => (
-        <span key={i} style={{ "--i": i }}>
-          {word}{" "}
+        <span key={i}>
+          <span style={{ "--i": i }}>{word}</span>{" "}
         </span>
       ))}
     </Tag>

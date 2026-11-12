@@ -2,6 +2,10 @@
   --p: 1;
 }
 
-.scroll-text.is-live span {
-  opacity: clamp(0.16, calc(var(--p) * (var(--n) + 5) - var(--i)), 1);
+/* each word rises into place and becomes visible as you scroll (no tint change) */
+.scroll-text.is-live > span > span {
+  --t: clamp(0, calc((var(--p) * (var(--n) + 3) - var(--i)) / 3), 1);
+  display: inline-block;
+  opacity: var(--t);
+  transform: translateY(calc((1 - var(--t)) * 0.6em));
 }
