@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsWhatsapp, BsWifi, BsShieldLock, BsHeadset } from "react-icons/bs";
 import { Reveal } from "@/components/ui/reveal/Reveal";
+import { ScrollText } from "@/components/ui/scroll-text/ScrollText";
+import { WordReveal } from "@/components/ui/word-reveal/WordReveal";
 import { CountUp } from "@/components/ui/count-up/CountUp";
 import hero from "@/assets/images/hero.webp";
 import { Section } from "@/components/ui/section/Section";
@@ -49,14 +51,13 @@ export const Home = () => (
       <div className="container-cw hero-grid">
         <div>
           <span className="eyebrow rise">Conectando tu mundo</span>
-          <h1 className="rise" style={{ animationDelay: "80ms" }}>
+          <WordReveal as="h1" base={150}>
             Soluciones de internet adaptadas a tus necesidades
-          </h1>
-          <p className="hero-lead rise" style={{ animationDelay: "160ms" }}>
-            Fibra óptica e internet inalámbrico en Actopan, con servicio de calidad respaldado por
-            nuestra experiencia.
-          </p>
-          <div className="hero-actions rise" style={{ animationDelay: "240ms" }}>
+          </WordReveal>
+          <WordReveal as="p" className="hero-lead" base={800} step={35}>
+            Fibra óptica e internet inalámbrico en Actopan, con servicio de calidad respaldado por nuestra experiencia.
+          </WordReveal>
+          <div className="hero-actions rise" style={{ animationDelay: "1500ms" }}>
             <Link href="#paquetes" className="btn-cw btn-cw-primary">
               Ver paquetes
             </Link>
@@ -103,7 +104,7 @@ export const Home = () => (
                 <Icon aria-hidden="true" />
               </span>
               <h3>{title}</h3>
-              <p>{desc}</p>
+              <ScrollText>{desc}</ScrollText>
             </Reveal>
           ))}
         </div>

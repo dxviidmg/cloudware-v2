@@ -1,0 +1,11 @@
+.word-reveal > span > span {
+  display: inline-block;
+  animation: word-in 700ms var(--ease) backwards;
+}
+
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+}
