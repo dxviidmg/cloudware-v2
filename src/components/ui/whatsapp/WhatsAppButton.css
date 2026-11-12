@@ -8,16 +8,16 @@
   width: 56px;
   height: 56px;
   font-size: 1.7rem;
-  color: #0f8a45;
-  background: #fff;
+  color: #fff;
+  background: #0f8a45;
   border-radius: 50%;
   box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
   transition: box-shadow var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
 }
 
 .whatsapp-btn:hover {
-  color: #0b6b35;
-  background: #e9fff1;
+  color: #fff;
+  background: #0b7a3b;
   box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6);
 }
 
