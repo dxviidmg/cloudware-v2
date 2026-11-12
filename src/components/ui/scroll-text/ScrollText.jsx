@@ -20,8 +20,11 @@ export const ScrollText = ({ as: Tag = "p", children, ...props }) => {
       const vh = window.innerHeight;
       // 0 when the paragraph enters the bottom of the viewport, 1 once it reaches ~35% from the top
       const start = vh * 0.92;
-      const end = vh * 0.35 - height * 0.4;
-      const p = Math.min(1, Math.max(0, (start - top) / (start - end)));
+      // text near the page bottom can never scroll up to 35%: finish when the page ends instead
+      const maxScroll = document.documentElement.scrollHeight - vh;
+      const topAtBottom = top - (maxScroll - window.scrollY);
+      const end = Math.max(vh * 0.35 - height * 0.4, topAtBottom + 24);
+      const p = Math.min(1, Math.max(0, (start - top) / Math.max(1, start - end)));
       el.style.setProperty("--p", p.toFixed(3));
     };
     const onScroll = () => {

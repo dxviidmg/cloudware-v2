@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ScrollText } from "@/components/ui/scroll-text/ScrollText";
 import logo from "@/assets/images/logo.png";
 import { BsWhatsapp, BsClock, BsGeoAlt, BsHeadset, BsSignTurnRight, BsStickies, BsFacebook } from "react-icons/bs";
 import { WHATSAPP_DISPLAY, WHATSAPP_URL, SUPPORT_DISPLAY, SUPPORT_URL, ADDRESS, MAPS_URL, HOURS, FACEBOOK_URL } from "@/data/constants";
@@ -11,10 +12,9 @@ export const Footer = () => (
       <div>
         <Image src={logo} width={192} height={44} quality={100} sizes="192px" alt="CloudWare MX" className="footer-logo" />
         <h2>Nuestro compromiso</h2>
-        <p>
-          En CloudWare la satisfacción de nuestros clientes es lo más importante; por eso hacemos lo
-          necesario para mantener la mejor estabilidad y atender los reportes de falla a la brevedad.
-        </p>
+        <ScrollText>
+          En CloudWare la satisfacción de nuestros clientes es lo más importante; por eso hacemos lo necesario para mantener la mejor estabilidad y atender los reportes de falla a la brevedad.
+        </ScrollText>
         <p className="footer-line">
           <BsStickies aria-hidden="true" /> Folio IFT: IFT/223/UCS/AUT-COM-077/2018
         </p>
