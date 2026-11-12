@@ -28,7 +28,7 @@ export function CoverageMap({ mode }) {
     let signals = [];
 
     const initSignals = () => {
-      signals = [[0, 1], [1, 2], [2, 3], [3, 0], [0, 2], [1, 3]].map(([from, to]) => ({
+      signals = [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 2], [1, 3]].map(([from, to]) => ({
         from, to,
         t: Math.random(),
         speed: 0.004 + Math.random() * 0.003,

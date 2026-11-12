@@ -16,12 +16,10 @@ const technologies = [
 ];
 
 const numbers = [
-  { icon: BsGeoAlt, value: "4", label: "Municipios", note: "con cobertura activa" },
+  { icon: BsGeoAlt, value: "5", label: "Municipios", note: "con cobertura activa" },
   { icon: BsHouse, value: "40+", label: "Comunidades", note: "conectadas" },
-  { icon: BsWifi, value: "2", label: "Tecnologías", note: "Fibra óptica e inalámbrica" },
-  { icon: BsLightningCharge, value: "100%", label: "Red propia", note: "Infraestructura de calidad" },
+  { icon: BsLightningCharge, value: "100%", label: "Fibra propia", note: "Infraestructura propia" },
 ];
-
 
 export const Coverage = () => {
   const [mode, setMode] = useState("fibra");
@@ -95,7 +93,9 @@ export const Coverage = () => {
               ) : (
                 <span><i className="leg-dot leg-antenna" aria-hidden="true" /> Antena disponible</span>
               )}
-              <span><i className="leg-dot leg-soon" aria-hidden="true" /> Próxima cobertura óptica</span>
+              {mode === "fibra" && (
+                <span><i className="leg-dot leg-soon" aria-hidden="true" /> Próxima cobertura óptica</span>
+              )}
             </div>
           </Reveal>
         </div>
